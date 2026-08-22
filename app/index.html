@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Goose Choose helps weigh decisions with Nay, Neutral, and Yea considerations.">
+    <meta name="app-version" content="v0.9">
+    <title>Goose Choose</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Goose Choose home">
+        <span class="asset-frame logo-frame" data-asset-name="assets/goose-choose-logo.png">
+          <img src="assets/goose-choose-logo.png" alt="" data-asset>
+          <span class="asset-label">assets/goose-choose-logo.png</span>
+        </span>
+        <span data-i18n="appName">Goose Choose</span>
+      </a>
+      <nav class="header-actions" aria-label="App actions">
+        <label class="language-picker">
+          <span class="sr-only">Language</span>
+          <select id="languagePicker" aria-label="Language">
+            <option value="en">English</option>
+            <option value="ko">한국어</option>
+            <option value="ga">Gaeilge</option>
+          </select>
+        </label>
+        <div class="theme-toggle" role="group" aria-label="Theme options">
+          <button class="theme-option" type="button" data-theme-choice="light" data-i18n="themeLight">Light</button>
+          <button class="theme-option" type="button" data-theme-choice="dark" data-i18n="themeDark">Dark</button>
+          <button class="theme-option active" type="button" data-theme-choice="system" data-i18n="themeSystem">System</button>
+        </div>
+        <button class="ghost-button" id="clearAll" type="button">
+          <span class="icon reset-icon" aria-hidden="true"></span>
+          <span data-i18n="clearAll">Clear all</span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="top" class="app-shell">
+      <section class="decision-card" aria-label="Decision">
+        <div class="decision-copy">
+          <p class="eyebrow" data-i18n="decisionPrompt">What should the goose choose?</p>
+          <label class="sr-only" for="decisionInput">Decision</label>
+          <input id="decisionInput" class="decision-input" type="text" placeholder="Start typing here…" autocomplete="off" data-i18n-placeholder="decisionPlaceholder">
+          <p class="help-text" data-i18n="decisionHelp">This should be a decision you can answer with a yea or a nay.</p>
+          <div class="decision-mode-row">
+            <div class="decision-mode-toggle" role="group" aria-label="Decision options">
+              <button class="decision-mode-option active" type="button" data-mode-choice="default" data-i18n="modeDefault">Yea &amp; Nay</button>
+              <button class="decision-mode-option" type="button" data-mode-choice="custom" data-i18n="modeCustom">Custom</button>
+            </div>
+            <div class="custom-label-fields" id="customLabelFields" hidden>
+              <label class="sr-only" for="customNegative">First option</label>
+              <input id="customNegative" class="custom-label-input" type="text" placeholder="Option 1" data-i18n-placeholder="customNegativePlaceholder">
+              <label class="sr-only" for="customPositive">Second option</label>
+              <input id="customPositive" class="custom-label-input" type="text" placeholder="Option 2" data-i18n-placeholder="customPositivePlaceholder">
+            </div>
+          </div>
+        </div>
+        <div class="asset-frame question-frame" data-asset-name="assets/goose-question.png">
+          <img src="assets/goose-question.png" alt="" data-asset>
+          <span class="asset-label">assets/goose-question.png</span>
+        </div>
+      </section>
+
+      <div class="locked-workspace" id="lockedWorkspace" aria-disabled="true">
+        <div class="locked-notice" id="lockedNotice" data-i18n="lockedNotice">Enter a decision above to start adding points.</div>
+
+      <section class="add-point-card" aria-labelledby="add-point-heading">
+        <div class="add-point-copy">
+          <p class="eyebrow" id="add-point-heading" data-i18n="addPointHeading">Add a point</p>
+          <p data-i18n="addPointHelp">Write one consideration, choose its score, and Goose Choose will place it in the right column.</p>
+        </div>
+        <form class="add-point-form" id="addPointForm">
+          <label class="sr-only" for="newPointText">Point description</label>
+          <input id="newPointText" class="new-point-input" type="text" placeholder="Add a consideration" autocomplete="off" data-i18n-placeholder="pointPlaceholder">
+          <label class="sr-only" for="newPointScore">Point score</label>
+          <select id="newPointScore" class="score-select new-point-score" required>
+            <option value="" data-i18n="chooseScore">Choose score</option>
+          </select>
+          <button class="primary-button" type="submit" data-i18n="addPointButton">Add point</button>
+        </form>
+      </section>
+
+      <section class="points-grid" aria-label="Decision points">
+        <article class="point-column nay" data-column="nay">
+          <div class="column-head">
+            <p class="eyebrow" data-i18n="nayPoints">Nay points</p>
+            <p data-i18n="nayHelp">Reasons this might be a bad idea.</p>
+          </div>
+          <ul class="point-list" id="nayList" aria-label="Nay points"></ul>
+        </article>
+
+        <article class="point-column neutral" data-column="neutral">
+          <div class="column-head">
+            <p class="eyebrow" data-i18n="neutralPoints">Neutral points</p>
+            <p data-i18n="neutralHelp">Facts or considerations that don't push either way.</p>
+          </div>
+          <ul class="point-list" id="neutralList" aria-label="Neutral points"></ul>
+        </article>
+
+        <article class="point-column yay" data-column="yay">
+          <div class="column-head">
+            <p class="eyebrow" data-i18n="yayPoints">Yea points</p>
+            <p data-i18n="yayHelp">Reasons this might be a good idea.</p>
+          </div>
+          <ul class="point-list" id="yayList" aria-label="Yea points"></ul>
+        </article>
+      </section>
+
+      <section class="scoring-guide" id="how-it-works" aria-labelledby="scoring-heading">
+        <div>
+          <p class="eyebrow" id="scoring-heading" data-i18n="scoringHeading">Scoring guide</p>
+          <p data-i18n="scoringHelp">Score each point from -5 (strongly nay) to +5 (strongly yea).</p>
+        </div>
+        <div class="score-strip" aria-label="Scale from -5 strongly nay to +5 strongly yea">
+          <div class="score-numbers" aria-hidden="true">
+            <span>-5</span><span>-4</span><span>-3</span><span>-2</span><span>-1</span><span>0</span><span>+1</span><span>+2</span><span>+3</span><span>+4</span><span>+5</span>
+          </div>
+          <div class="score-gradient"></div>
+          <div class="scale-labels">
+            <span data-i18n="stronglyNay">Strongly Nay</span>
+            <span data-i18n="stronglyYay">Strongly Yea</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="result-card" aria-labelledby="result-heading">
+        <div class="result-topline">
+          <div>
+            <p class="eyebrow" id="result-heading" data-i18n="resultHeading">The goose is leaning...</p>
+            <p class="result-decision" id="resultDecision"></p>
+            <h1 id="resultLabel">Neutral</h1>
+            <p id="resultHint" class="help-text">Add considerations to help the goose choose.</p>
+          </div>
+          <aside class="score-card" aria-live="polite">
+            <p data-i18n="totalScore">Total score</p>
+            <strong id="totalScore">0</strong>
+            <span id="scoreRange">Range: 0 to 0</span>
+          </aside>
+        </div>
+
+        <div class="main-goose-zone">
+          <div class="asset-frame main-frame" id="mainGoose" data-asset-name="assets/goose-main.png">
+            <img src="assets/goose-main.png" alt="" data-asset>
+            <span class="asset-label">assets/goose-main.png</span>
+          </div>
+        </div>
+
+        <div class="decision-spectrum" aria-label="Decision spectrum">
+          <div class="spectrum-labels">
+            <span data-i18n="definitelyNay">Definitely Nay</span>
+            <span data-i18n="neutral">Neutral</span>
+            <span data-i18n="definitelyYay">Definitely Yea</span>
+          </div>
+          <div class="spectrum-track">
+            <div class="goose-marker" id="gooseMarker" aria-hidden="true">
+              <img src="assets/goose-choose-logo.png" alt="">
+            </div>
+          </div>
+          <div class="direction-labels">
+            <span data-i18n="nayArrow">&larr; Nay</span>
+            <span data-i18n="neutral">Neutral</span>
+            <span data-i18n="yayArrow">Yea &rarr;</span>
+          </div>
+        </div>
+      </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <button class="footer-link" id="loadMarkdown" type="button" data-i18n="loadMarkdown">Load Markdown</button>
+      <input class="sr-only" id="markdownFileInput" type="file" accept=".md,text/markdown,text/plain">
+      <a href="#" id="exportMarkdown" data-i18n="exportMarkdown">Export Markdown</a>
+      <a href="#" data-coming-soon data-i18n="privacy">Privacy Policy</a>
+      <a href="#" data-coming-soon data-i18n="terms">Terms of Service</a>
+      <a href="#" data-coming-soon data-i18n="updateLog">Update Log</a>
+    </footer>
+
+    <div class="coming-soon-tip" id="comingSoonTip" role="status" aria-live="polite">Coming soon</div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

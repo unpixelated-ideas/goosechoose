@@ -1,0 +1,12 @@
+# Local/private notes
+INTERNAL_VERSION_NOTES.md
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
