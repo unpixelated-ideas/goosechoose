@@ -31,8 +31,16 @@
           <button class="theme-option" type="button" data-theme-choice="dark" data-i18n="themeDark">Dark</button>
           <button class="theme-option active" type="button" data-theme-choice="system" data-i18n="themeSystem">System</button>
         </div>
+        <label class="theme-picker">
+          <span class="sr-only">Appearance</span>
+          <select id="themePicker" aria-label="Appearance">
+            <option value="light" data-i18n="themeLight">Light</option>
+            <option value="dark" data-i18n="themeDark">Dark</option>
+            <option value="system" data-i18n="themeSystem">System</option>
+          </select>
+        </label>
         <button class="ghost-button" id="clearAll" type="button">
-          <span class="icon reset-icon" aria-hidden="true"></span>
+          <span class="icon text-icon" aria-hidden="true">⌫</span>
           <span data-i18n="clearAll">Clear all</span>
         </button>
       </nav>
@@ -175,10 +183,18 @@
       <a href="#" id="exportMarkdown" data-i18n="exportMarkdown">Export Markdown</a>
       <a href="#" data-coming-soon data-i18n="privacy">Privacy Policy</a>
       <a href="#" data-coming-soon data-i18n="terms">Terms of Service</a>
-      <a href="#" data-coming-soon data-i18n="updateLog">Update Log</a>
+      <button class="footer-link" id="updateLogButton" type="button" data-i18n="updateLog">Update Log</button>
     </footer>
 
     <div class="coming-soon-tip" id="comingSoonTip" role="status" aria-live="polite">Coming soon</div>
+
+    <div class="modal-backdrop" id="updateLogModal" hidden>
+      <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="updateLogTitle">
+        <button class="modal-close" id="closeUpdateLog" type="button" aria-label="Close">×</button>
+        <p class="eyebrow" id="updateLogTitle" data-i18n="updateLog">Update Log</p>
+        <div class="update-log-content" id="updateLogContent"></div>
+      </section>
+    </div>
 
     <script src="app.js"></script>
   </body>

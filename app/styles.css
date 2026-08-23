@@ -189,6 +189,20 @@ button {
   font-weight: 760;
 }
 
+.theme-picker {
+  display: none;
+}
+
+.theme-picker select {
+  min-height: 2.55rem;
+  padding: 0.48rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--control-bg);
+  color: var(--ink);
+  font-weight: 760;
+}
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -244,29 +258,14 @@ button {
   line-height: 1;
 }
 
-.reset-icon {
-  position: relative;
-  border-radius: 999px;
-}
-
-.reset-icon::before {
-  content: "";
-  width: 0.6rem;
-  height: 0.6rem;
-  border: 2px solid currentColor;
-  border-right-color: transparent;
-  border-radius: 999px;
-}
-
-.reset-icon::after {
-  content: "";
-  position: absolute;
-  top: 0.24rem;
-  left: 0.2rem;
-  border-top: 0.28rem solid transparent;
-  border-bottom: 0.28rem solid transparent;
-  border-right: 0.38rem solid currentColor;
-  transform: rotate(-20deg);
+.text-icon {
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1;
 }
 
 .app-shell {
@@ -905,6 +904,86 @@ button {
   transform: translate(-50%, var(--tip-y, -100%)) translateY(var(--tip-gap-active, -0.85rem));
 }
 
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(9, 18, 28, 0.48);
+  backdrop-filter: blur(4px);
+}
+
+.modal-backdrop[hidden] {
+  display: none;
+}
+
+.modal-card {
+  position: relative;
+  width: min(34rem, 100%);
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--control-bg);
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.update-log-content {
+  padding-right: 2rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.update-log-release {
+  margin-top: 1rem;
+}
+
+.update-log-release h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.update-log-date {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.update-log-release ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.update-log-release li + li {
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 640px) {
+  .update-log-content {
+    padding-right: 0;
+  }
+}
+
 @media (max-width: 920px) {
   .decision-card,
   .scoring-guide {
@@ -933,6 +1012,24 @@ button {
   }
 }
 
+@media (min-width: 641px) and (max-width: 920px) {
+  .decision-card {
+    grid-template-columns: minmax(0, 1fr) minmax(9rem, 12rem);
+    align-items: center;
+  }
+
+  .question-frame {
+    justify-self: end;
+    width: min(12rem, 100%);
+    min-height: 10rem;
+    max-height: 13rem;
+  }
+
+  .question-frame img {
+    max-height: 13rem;
+  }
+}
+
 @media (max-width: 640px) {
   .site-header {
     position: static;
@@ -952,12 +1049,11 @@ button {
   }
 
   .theme-toggle {
-    order: 3;
-    width: 100%;
+    display: none;
   }
 
-  .theme-option {
-    flex: 1;
+  .theme-picker {
+    display: block;
   }
 
   .app-shell {
@@ -974,7 +1070,22 @@ button {
   }
 
   .question-frame {
-    display: none;
+    display: grid;
+    justify-self: center;
+    width: min(9.5rem, 48vw);
+    min-height: 7rem;
+    max-height: 9.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .question-frame img {
+    max-height: 9.5rem;
+  }
+
+  :root[data-theme="dark"] .question-frame::before {
+    top: -0.35rem;
+    right: calc(10% - 3px);
+    width: calc(clamp(2.5rem, 14vw, 3.7rem) + 8px);
   }
 
   .add-point-form {

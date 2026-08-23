@@ -5,6 +5,62 @@
   const STORAGE_KEY = "goose-choose-state-v1";
   const LANGUAGE_KEY = "goose-choose-language";
   const THEME_KEY = "goose-choose-theme";
+  const UPDATE_LOG = [
+    {
+      version: "v0.9",
+      date: "2026-08-22",
+      items: {
+        en: [
+          "Appearance toggle: switch between light mode, dark mode, or your system default",
+          "Markdown file uploads: continue working on a decision by uploading a previously downloaded Markdown file",
+          "Custom decision fields: replace the fixed yea/nay labels with your own options for greater flexibility",
+          "Fixed Irish naming inconsistency",
+          "Enabled update log",
+          "Fixed inconsistencies with the tablet and mobile web versions of the tool"
+        ],
+        ko: [
+          "화면 표시 전환: 라이트 모드, 다크 모드 또는 시스템 기본값 중에서 선택",
+          "마크다운 파일 업로드: 이전에 다운로드한 마크다운 파일을 업로드해 결정 작업 계속하기",
+          "사용자 지정 결정 필드: 고정된 yea/nay 라벨을 원하는 선택지로 바꾸기",
+          "아일랜드어 이름 불일치 수정",
+          "업데이트 기록 활성화",
+          "태블릿 및 모바일 웹 버전의 도구 불일치 수정"
+        ],
+        ga: [
+          "Scorán cuma: aistrigh idir mód geal, mód dorcha, nó réamhshocrú do chórais",
+          "Uaslódálacha comhad Markdown: lean ar aghaidh le cinneadh trí chomhad Markdown a íoslódáladh roimhe seo a uaslódáil",
+          "Réimsí cinnidh saincheaptha: cuir do roghanna féin in áit na lipéad seasta yea/nay le haghaidh níos mó solúbthachta",
+          "Ceartaíodh neamh-chomhsheasmhacht ainmniúcháin na Gaeilge",
+          "Cumasaíodh loga nuashonruithe",
+          "Ceartaíodh neamh-chomhsheasmhachtaí i leaganacha táibléid agus gréasáin soghluaiste na huirlise"
+        ]
+      }
+    },
+    {
+      version: "v0.8",
+      date: "2026-08-21",
+      items: {
+        en: [
+          "MVP baseline version; make decisions using yea and nay as the default options",
+          "Core site functionality established",
+          "English as the default language; Korean and Irish translations offered",
+          "Markdown file downloads to retain your decision-making process"
+        ],
+        ko: [
+          "MVP 기준 버전: yea와 nay를 기본 선택지로 사용해 결정하기",
+          "핵심 사이트 기능 구축",
+          "영어를 기본 언어로 제공하고 한국어와 아일랜드어 번역 제공",
+          "결정 과정을 보관할 수 있는 마크다운 파일 다운로드"
+        ],
+        ga: [
+          "Leagan bonnlíne MVP; déan cinntí le yea agus nay mar na roghanna réamhshocraithe",
+          "Bunaíodh príomhfheidhmiúlacht an tsuímh",
+          "Béarla mar an teanga réamhshocraithe; aistriúcháin Chóiréise agus Ghaeilge ar fáil",
+          "Íoslódálacha comhad Markdown chun do phróiseas cinnteoireachta a choinneáil"
+        ]
+      }
+    }
+  ];
 
   const translations = {
     en: {
@@ -142,7 +198,7 @@
     ga: {
       addPointButton: "Cuir pointe leis",
       addPointHeading: "Cuir pointe leis",
-      addPointHelp: "Scríobh cúis amháin, roghnaigh a scór, agus cuirfidh Goose Choose sa cholún ceart í.",
+      addPointHelp: "Scríobh cúis amháin, roghnaigh a scór, agus cuirfidh Gús Tsús sa cholún ceart í.",
       appName: "Gús Tsús",
       balancedHint: "Tá na cúiseanna ag cothromú a chéile faoi láthair.",
       chooseScore: "Roghnaigh scór",
@@ -164,7 +220,7 @@
       exportEmptyDecision: "Cuir cinneadh isteach roimh easpórtáil.",
       exportTitle: "Cinneadh {appName}",
       loadMarkdown: "Lódáil Markdown",
-      loadMarkdownInvalid: "Níl staid Goose Choose sa chomhad Markdown seo.",
+      loadMarkdownInvalid: "Níl staid Gús Tsús sa chomhad Markdown seo.",
       loadMarkdownReady: "Lódáladh an cinneadh",
       leaningHint: "Tá na pointí ualaithe ag claonadh i dtreo {direction} faoi láthair.",
       moveDown: "Bog an pointe síos",
@@ -238,7 +294,12 @@
     loadMarkdown: document.getElementById("loadMarkdown"),
     markdownFileInput: document.getElementById("markdownFileInput"),
     exportMarkdown: document.getElementById("exportMarkdown"),
+    updateLogButton: document.getElementById("updateLogButton"),
+    updateLogModal: document.getElementById("updateLogModal"),
+    updateLogContent: document.getElementById("updateLogContent"),
+    closeUpdateLog: document.getElementById("closeUpdateLog"),
     comingSoonTip: document.getElementById("comingSoonTip"),
+    themePicker: document.getElementById("themePicker"),
     themeOptions: document.querySelectorAll("[data-theme-choice]"),
     lists: {
       nay: document.getElementById("nayList"),
@@ -263,6 +324,12 @@
       value = value.replace(`{${name}}`, replacement);
     }
     return value;
+  }
+
+  function currentLocale() {
+    if (currentLanguage === "ko") return "ko-KR";
+    if (currentLanguage === "ga") return "ga-IE";
+    return "en-US";
   }
 
   function isCustomMode() {
@@ -469,6 +536,7 @@
       button.classList.toggle("active", active);
       button.setAttribute("aria-pressed", String(active));
     });
+    els.themePicker.value = currentTheme;
   }
 
   function renderNewPointScoreOptions() {
@@ -930,6 +998,51 @@
     }, 1400);
   }
 
+  function renderUpdateLog() {
+    els.updateLogContent.innerHTML = "";
+    const dateFormatter = new Intl.DateTimeFormat(currentLocale(), {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    });
+
+    UPDATE_LOG.forEach((release) => {
+      const section = document.createElement("section");
+      section.className = "update-log-release";
+
+      const heading = document.createElement("h3");
+      heading.textContent = release.version;
+      section.append(heading);
+
+      const date = document.createElement("p");
+      date.className = "update-log-date";
+      date.textContent = dateFormatter.format(new Date(`${release.date}T12:00:00`));
+      section.append(date);
+
+      const list = document.createElement("ul");
+      const items = release.items[currentLanguage] || release.items.en;
+      items.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item;
+        list.append(listItem);
+      });
+      section.append(list);
+
+      els.updateLogContent.append(section);
+    });
+  }
+
+  function openUpdateLog() {
+    renderUpdateLog();
+    els.updateLogModal.hidden = false;
+    els.closeUpdateLog.focus();
+  }
+
+  function closeUpdateLog() {
+    els.updateLogModal.hidden = true;
+    els.updateLogButton.focus();
+  }
+
   function setupEvents() {
     els.decisionInput.addEventListener("input", () => {
       state.decision = els.decisionInput.value;
@@ -946,6 +1059,7 @@
       renderLists();
       renderResult();
       renderLockState();
+      if (!els.updateLogModal.hidden) renderUpdateLog();
     });
 
     applyLanguage();
@@ -1001,6 +1115,12 @@
       });
     });
 
+    els.themePicker.addEventListener("change", () => {
+      currentTheme = els.themePicker.value;
+      localStorage.setItem(THEME_KEY, currentTheme);
+      applyTheme();
+    });
+
     els.loadMarkdown.addEventListener("click", () => {
       els.markdownFileInput.click();
     });
@@ -1014,6 +1134,15 @@
     els.exportMarkdown.addEventListener("click", (event) => {
       event.preventDefault();
       exportMarkdown();
+    });
+
+    els.updateLogButton.addEventListener("click", openUpdateLog);
+    els.closeUpdateLog.addEventListener("click", closeUpdateLog);
+    els.updateLogModal.addEventListener("click", (event) => {
+      if (event.target === els.updateLogModal) closeUpdateLog();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !els.updateLogModal.hidden) closeUpdateLog();
     });
 
     document.querySelectorAll("[data-coming-soon]").forEach((element) => {
@@ -1051,6 +1180,7 @@
 
   window.GooseChoose = {
     version: APP_VERSION,
+    updateLog: UPDATE_LOG,
     calculate,
     classify,
     resultFor
