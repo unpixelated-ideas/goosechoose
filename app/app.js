@@ -1,11 +1,26 @@
 (function () {
   "use strict";
 
-  const APP_VERSION = "v0.9";
+  const APP_VERSION = "v0.9.1";
   const STORAGE_KEY = "goose-choose-state-v1";
   const LANGUAGE_KEY = "goose-choose-language";
   const THEME_KEY = "goose-choose-theme";
   const UPDATE_LOG = [
+    {
+      version: "v0.9.1",
+      date: "2026-08-29",
+      items: {
+        en: [
+          "Fixed UI issue on mobile and tablet where the header was not properly blending in"
+        ],
+        ko: [
+          "모바일 및 태블릿에서 헤더가 자연스럽게 어우러지지 않던 UI 문제 수정"
+        ],
+        ga: [
+          "Ceartaíodh fadhb UI ar fhón póca agus ar tháibléad nach raibh an ceanntásc ag cumasc isteach i gceart"
+        ]
+      }
+    },
     {
       version: "v0.9",
       date: "2026-08-22",
@@ -526,11 +541,19 @@
       : currentTheme;
   }
 
+  function updateThemeColor() {
+    const themeColor = getComputedStyle(document.documentElement)
+      .getPropertyValue("--theme-color")
+      .trim();
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", themeColor);
+  }
+
   function applyTheme() {
     const theme = resolvedTheme();
     document.documentElement.dataset.theme = theme;
     document.documentElement.dataset.themePreference = currentTheme;
     document.documentElement.style.colorScheme = theme;
+    updateThemeColor();
     els.themeOptions.forEach((button) => {
       const active = button.dataset.themeChoice === currentTheme;
       button.classList.toggle("active", active);
