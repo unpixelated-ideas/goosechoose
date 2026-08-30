@@ -11,13 +11,19 @@
       date: "2026-08-29",
       items: {
         en: [
-          "Fixed UI issue on mobile and tablet where the header was not properly blending in"
+          "Added a random chooser page with Slots and blackjack with wildcard jokers for decisions that still feel undecided",
+          "Fixed UI issue on mobile and tablet where the header was not properly blending in",
+          "Added pages for the Privacy Policy and Terms of Service"
         ],
         ko: [
-          "모바일 및 태블릿에서 헤더가 자연스럽게 어우러지지 않던 UI 문제 수정"
+          "아직 결정하기 어려운 상황을 위해 슬롯과 와일드카드 조커가 있는 블랙잭 랜덤 선택 페이지 추가",
+          "모바일 및 태블릿에서 헤더가 자연스럽게 어우러지지 않던 UI 문제 수정",
+          "개인정보 처리방침 및 서비스 약관 페이지 추가"
         ],
         ga: [
-          "Ceartaíodh fadhb UI ar fhón póca agus ar tháibléad nach raibh an ceanntásc ag cumasc isteach i gceart"
+          "Cuireadh leathanach roghnóra randamaigh leis, le Sliotáin agus blackjack le jokers saoróg, do chinntí atá fós idir dhá chomhairle",
+          "Ceartaíodh fadhb UI ar fhón póca agus ar tháibléad nach raibh an ceanntásc ag cumasc isteach i gceart",
+          "Cuireadh leathanaigh don Pholasaí Príobháideachais agus do na Téarmaí Seirbhíse leis"
         ]
       }
     },
@@ -105,6 +111,7 @@
       loadMarkdown: "Load Markdown",
       loadMarkdownInvalid: "This Markdown file does not include Goose Choose state.",
       loadMarkdownReady: "Decision loaded",
+      legalLastUpdated: "Last updated: August 29, 2026",
       leaningHint: "The weighted points currently lean {direction}.",
       moveDown: "Move point down",
       moveUp: "Move point up",
@@ -131,6 +138,40 @@
       scoringHelp: "Score each point from -5 (strongly nay) to +5 (strongly yea).",
       stronglyNay: "Strongly Nay",
       stronglyYay: "Strongly Yea",
+      backToDecision: "Back to decision",
+      applyJoker: "Apply joker",
+      blackjack: "Blackjack",
+      blackjackBust: "{player} busted. {winner} is what the goose suggests.",
+      blackjackFinalTie: "Both options tied at {score}. Deal again to break it.",
+      blackjackHelp: "Each option plays face-up. Hit or stay, then let the closest hand decide.",
+      blackjackHeading: "Closest to 21 chooses",
+      blackjackReady: "Deal a round to begin.",
+      blackjackStayed: "{player} stayed at {score}.",
+      blackjackTieFirst: "Both options were equally close, so {player} goes first by suit order: Spades, Hearts, Diamonds, Clubs.",
+      blackjackTurn: "{player}'s turn.",
+      blackjackWin: "{winner} is closer to 21. The goose suggests {winner}.",
+      dealRound: "Deal round",
+      hit: "Hit",
+      chooseJokerHelp: "{player} drew a joker. Pick the rank and suit this joker will become. Rank is the card term for number or face.",
+      chooseJokerTitle: "Choose the joker",
+      randomEyebrow: "Random chooser",
+      randomHeading: "Still undecided?",
+      randomSubtitle: "Let the goose break the tie with a little chance.",
+      slotHelp: "The majority result is the goose's suggestion.",
+      slotHeading: "Spin three wheels",
+      joker: "Joker",
+      rank: "Rank",
+      slotSuggestionLabel: "The goose suggests {winner}.",
+      slotMachine: "Slots",
+      slots: "Slots",
+      slotReady: "Ready when you are.",
+      slotResult: "The goose suggests {winner}.",
+      suit: "Suit",
+      spinAgain: "Spin again",
+      spinSlot: "Spin",
+      spinning: "Spinning...",
+      stay: "Stay",
+      stillUndecided: "Still undecided?",
       terms: "Terms of Service",
       themeDark: "Dark",
       themeLight: "Light",
@@ -171,6 +212,7 @@
       loadMarkdown: "마크다운 불러오기",
       loadMarkdownInvalid: "이 마크다운 파일에는 구스추즈 상태가 포함되어 있지 않습니다.",
       loadMarkdownReady: "결정을 불러왔습니다",
+      legalLastUpdated: "최종 업데이트: 2026년 8월 29일",
       leaningHint: "가중치를 더한 포인트는 현재 {direction} 쪽으로 기울고 있어요.",
       moveDown: "포인트 아래로 이동",
       moveUp: "포인트 위로 이동",
@@ -197,6 +239,40 @@
       scoringHelp: "각 포인트를 -5(강한 반대)부터 +5(강한 찬성)까지 점수로 매겨보세요.",
       stronglyNay: "강한 반대",
       stronglyYay: "강한 찬성",
+      backToDecision: "결정으로 돌아가기",
+      applyJoker: "조커 적용",
+      blackjack: "블랙잭",
+      blackjackBust: "{player} 버스트. 거위는 {winner} 쪽을 추천합니다.",
+      blackjackFinalTie: "두 선택지가 {score}점으로 동점입니다. 다시 딜해서 정하세요.",
+      blackjackHelp: "각 선택지가 앞면 카드로 플레이합니다. 히트하거나 스테이한 뒤 21에 더 가까운 손패가 결정합니다.",
+      blackjackHeading: "21에 더 가까운 쪽이 선택",
+      blackjackReady: "라운드를 딜하면 시작합니다.",
+      blackjackStayed: "{player} 스테이: {score}점.",
+      blackjackTieFirst: "두 선택지가 똑같이 가까워서 수트 순서(스페이드, 하트, 다이아몬드, 클럽)에 따라 {player}부터 시작합니다.",
+      blackjackTurn: "{player} 차례입니다.",
+      blackjackWin: "{winner} 쪽이 21에 더 가깝습니다. 거위는 {winner} 쪽을 추천합니다.",
+      dealRound: "라운드 딜",
+      hit: "히트",
+      chooseJokerHelp: "{player} 쪽이 조커를 뽑았습니다. 이 조커가 될 랭크와 수트를 고르세요. 랭크는 숫자나 그림을 뜻하는 카드 용어입니다.",
+      chooseJokerTitle: "조커 선택",
+      randomEyebrow: "랜덤 선택",
+      randomHeading: "아직 못 정했나요?",
+      randomSubtitle: "약간의 운으로 거위가 결정을 도와줄게요.",
+      slotHelp: "다수로 나온 결과가 거위의 추천입니다.",
+      slotHeading: "세 바퀴 돌리기",
+      joker: "조커",
+      rank: "숫자",
+      slotSuggestionLabel: "거위는 {winner} 쪽을 추천합니다.",
+      slotMachine: "슬롯",
+      slots: "슬롯",
+      slotReady: "준비됐어요.",
+      slotResult: "거위는 {winner} 쪽을 추천합니다.",
+      suit: "수트",
+      spinAgain: "다시 돌리기",
+      spinSlot: "돌리기",
+      spinning: "돌리는 중...",
+      stay: "스테이",
+      stillUndecided: "아직 못 정했나요?",
       terms: "서비스 약관",
       themeDark: "다크",
       themeLight: "라이트",
@@ -237,6 +313,7 @@
       loadMarkdown: "Lódáil Markdown",
       loadMarkdownInvalid: "Níl staid Gús Tsús sa chomhad Markdown seo.",
       loadMarkdownReady: "Lódáladh an cinneadh",
+      legalLastUpdated: "Nuashonraithe go deireanach: 29 Lúnasa 2026",
       leaningHint: "Tá na pointí ualaithe ag claonadh i dtreo {direction} faoi láthair.",
       moveDown: "Bog an pointe síos",
       moveUp: "Bog an pointe suas",
@@ -263,6 +340,40 @@
       scoringHelp: "Tabhair scór do gach pointe ó -5 (nay láidir) go +5 (yea láidir).",
       stronglyNay: "Nay láidir",
       stronglyYay: "Yea láidir",
+      backToDecision: "Ar ais chuig an gcinneadh",
+      applyJoker: "Cuir an joker i bhfeidhm",
+      blackjack: "Blackjack",
+      blackjackBust: "Chuaigh {player} thar 21. Is é {winner} moladh na gé.",
+      blackjackFinalTie: "Tá an dá rogha cothrom ag {score}. Déileáil arís chun é a bhriseadh.",
+      blackjackHelp: "Imríonn gach rogha le cártaí oscailte. Tarraing nó fan, ansin socraíonn an lámh is gaire do 21.",
+      blackjackHeading: "Is gaire do 21 a roghnaíonn",
+      blackjackReady: "Déileáil babhta chun tosú.",
+      blackjackStayed: "D'fhan {player} ag {score}.",
+      blackjackTieFirst: "Bhí an dá rogha chomh gar céanna, mar sin tosaíonn {player} de réir ord na ndathanna: Spades, Hearts, Diamonds, Clubs.",
+      blackjackTurn: "Seal {player}.",
+      blackjackWin: "Tá {winner} níos gaire do 21. Molann an ghé {winner}.",
+      dealRound: "Déileáil babhta",
+      hit: "Tarraing",
+      chooseJokerHelp: "Tharraing {player} joker. Roghnaigh an chéim agus an dath a bheidh aige. Is é céim an téarma cártaí ar uimhir nó aghaidh.",
+      chooseJokerTitle: "Roghnaigh an joker",
+      randomEyebrow: "Roghnóir randamach",
+      randomHeading: "Fós idir dhá chomhairle?",
+      randomSubtitle: "Lig don ghé an ceangal a bhriseadh le beagán seans.",
+      slotHelp: "Is é toradh an tromlaigh moladh na gé.",
+      slotHeading: "Cas trí roth",
+      joker: "Joker",
+      rank: "Céim",
+      slotSuggestionLabel: "Molann an ghé {winner}.",
+      slotMachine: "Sliotáin",
+      slots: "Sliotáin",
+      slotReady: "Réidh nuair atá tú.",
+      slotResult: "Molann an ghé {winner}.",
+      suit: "Dath",
+      spinAgain: "Cas arís",
+      spinSlot: "Cas",
+      spinning: "Ag casadh...",
+      stay: "Fan",
+      stillUndecided: "Fós idir dhá chomhairle?",
       terms: "Téarmaí Seirbhíse",
       themeDark: "Dorcha",
       themeLight: "Geal",
@@ -275,6 +386,85 @@
       yayHelp: "Cúiseanna a d'fhéadfadh é seo a bheith ina dhea-smaoineamh.",
       yayPoints: "Pointí Yea",
       lockedNotice: "Cuir cinneadh isteach thuas chun pointí a chur leis."
+    }
+  };
+
+  const LEGAL_PAGES = {
+    privacy: {
+      en: [
+        { heading: "", paragraphs: ["Goose Choose is designed to be simple and privacy-friendly. Goose Choose does not require an account and does not intentionally collect, store, sell, or share personal information about its users."] },
+        { heading: "Information You Enter", paragraphs: ["Information you enter into Goose Choose, including decisions, options, considerations, scores, or other content, is used only to provide the application's functionality.", "Goose Choose does not intentionally transmit or store this information on its own servers.", "If you choose to download a file from Goose Choose, that file is saved to your device. If you later upload a file to Goose Choose, its contents are processed for the purpose of restoring or using the information contained in that file. Goose Choose does not intentionally retain uploaded files after they are processed.", "You are responsible for the information you choose to enter into or upload to Goose Choose. You should avoid entering sensitive or confidential information that you would not want exposed in the event of a browser, device, hosting-provider, or other technical security issue."] },
+        { heading: "Cookies and Tracking", paragraphs: ["Goose Choose does not intentionally use cookies, advertising trackers, analytics services, or similar technologies to track users."] },
+        { heading: "Hosting and Third Parties", paragraphs: ["Goose Choose may rely on third-party services to host or deliver the website. These services may collect or process certain technical information when you access Goose Choose, such as IP addresses, browser or device information, and information associated with requests to their systems.", "Any such processing is performed by the applicable third-party provider and is outside the direct control of Goose Choose. The provider's handling of information is governed by its own privacy policies and practices."] },
+        { heading: "External Links", paragraphs: ["Goose Choose may contain links to websites or services operated by third parties. Goose Choose is not responsible for the privacy practices, security, or content of those third-party services."] },
+        { heading: "Children's Privacy", paragraphs: ["Goose Choose does not knowingly collect personal information from children or any other users."] },
+        { heading: "Changes to This Policy", paragraphs: ["This Privacy Policy may be updated from time to time to reflect changes to Goose Choose, its hosting, or applicable practices. The date at the top of this page indicates when the policy was most recently updated."] },
+        { heading: "Contact", paragraphs: ["If you have questions about this Privacy Policy, you may contact the Goose Choose project through the contact information made available on the Goose Choose website."] }
+      ],
+      ko: [
+        { heading: "", paragraphs: ["구스추즈는 단순하고 개인정보 친화적인 방식으로 설계되었습니다. 구스추즈는 계정을 요구하지 않으며, 사용자의 개인정보를 의도적으로 수집, 저장, 판매 또는 공유하지 않습니다."] },
+        { heading: "입력한 정보", paragraphs: ["결정, 선택지, 고려 사항, 점수 또는 기타 콘텐츠를 포함해 사용자가 구스추즈에 입력하는 정보는 애플리케이션 기능을 제공하기 위해서만 사용됩니다.", "구스추즈는 이 정보를 자체 서버로 의도적으로 전송하거나 저장하지 않습니다.", "구스추즈에서 파일을 다운로드하면 해당 파일은 사용자의 기기에 저장됩니다. 이후 구스추즈에 파일을 업로드하면 그 파일의 내용은 파일에 담긴 정보를 복원하거나 사용하기 위한 목적으로 처리됩니다. 구스추즈는 업로드된 파일을 처리 후 의도적으로 보관하지 않습니다.", "구스추즈에 입력하거나 업로드하는 정보에 대한 책임은 사용자에게 있습니다. 브라우저, 기기, 호스팅 제공업체 또는 기타 기술적 보안 문제가 발생했을 때 노출되기를 원하지 않는 민감하거나 기밀인 정보는 입력하지 않는 것이 좋습니다."] },
+        { heading: "쿠키 및 추적", paragraphs: ["구스추즈는 사용자를 추적하기 위해 쿠키, 광고 추적기, 분석 서비스 또는 이와 유사한 기술을 의도적으로 사용하지 않습니다."] },
+        { heading: "호스팅 및 제3자", paragraphs: ["구스추즈는 웹사이트를 호스팅하거나 제공하기 위해 제3자 서비스를 이용할 수 있습니다. 이러한 서비스는 사용자가 구스추즈에 접속할 때 IP 주소, 브라우저 또는 기기 정보, 해당 시스템에 대한 요청과 관련된 정보 등 일부 기술 정보를 수집하거나 처리할 수 있습니다.", "그러한 처리는 해당 제3자 제공업체가 수행하며 구스추즈의 직접적인 통제 범위 밖에 있습니다. 해당 제공업체의 정보 처리 방식은 그 자체의 개인정보 보호정책과 관행을 따릅니다."] },
+        { heading: "외부 링크", paragraphs: ["구스추즈에는 제3자가 운영하는 웹사이트 또는 서비스로 연결되는 링크가 포함될 수 있습니다. 구스추즈는 이러한 제3자 서비스의 개인정보 보호 관행, 보안 또는 콘텐츠에 대해 책임지지 않습니다."] },
+        { heading: "아동 개인정보", paragraphs: ["구스추즈는 아동 또는 기타 사용자로부터 개인정보를 고의로 수집하지 않습니다."] },
+        { heading: "정책 변경", paragraphs: ["이 개인정보 처리방침은 구스추즈, 호스팅 또는 관련 관행의 변경 사항을 반영하기 위해 수시로 업데이트될 수 있습니다. 이 페이지 상단의 날짜는 본 방침이 마지막으로 업데이트된 시점을 나타냅니다."] },
+        { heading: "문의", paragraphs: ["이 개인정보 처리방침에 대해 질문이 있는 경우, 구스추즈 웹사이트에 제공된 연락처 정보를 통해 구스추즈 프로젝트에 문의할 수 있습니다."] }
+      ],
+      ga: [
+        { heading: "", paragraphs: ["Tá Gús Tsús deartha le bheith simplí agus cairdiúil don phríobháideachas. Ní éilíonn Gús Tsús cuntas agus ní bhailíonn, ní stórálann, ní dhíolann ná ní roinneann sé faisnéis phearsanta faoi úsáideoirí d'aon ghnó."] },
+        { heading: "Faisnéis a Chuireann Tú Isteach", paragraphs: ["Ní úsáidtear faisnéis a chuireann tú isteach i nGús Tsús, lena n-áirítear cinntí, roghanna, cúiseanna, scóir nó ábhar eile, ach chun feidhmiúlacht na haipe a chur ar fáil.", "Ní tharchuireann ná ní stórálann Gús Tsús an fhaisnéis seo ar a fhreastalaithe féin d'aon ghnó.", "Má roghnaíonn tú comhad a íoslódáil ó Ghús Tsús, sábháiltear an comhad sin ar do ghléas. Má uaslódálann tú comhad chuig Gús Tsús níos déanaí, próiseáiltear a ábhar chun an fhaisnéis atá sa chomhad sin a athbhunú nó a úsáid. Ní choinníonn Gús Tsús comhaid uaslódáilte d'aon ghnó tar éis iad a phróiseáil.", "Tá tú freagrach as an bhfaisnéis a roghnaíonn tú a chur isteach i nGús Tsús nó a uaslódáil chuige. Ba cheart duit faisnéis íogair nó rúnda nach mbeadh tú ag iarraidh a nochtadh i gcás fadhb slándála le brabhsálaí, gléas, soláthraí óstála nó teicneolaíocht eile a sheachaint."] },
+        { heading: "Fianáin agus Rianú", paragraphs: ["Ní úsáideann Gús Tsús fianáin, lorgairí fógraíochta, seirbhísí anailísíochta ná teicneolaíochtaí comhchosúla chun úsáideoirí a rianú d'aon ghnó."] },
+        { heading: "Óstáil agus Tríú Páirtithe", paragraphs: ["Féadfaidh Gús Tsús brath ar sheirbhísí tríú páirtí chun an suíomh gréasáin a óstáil nó a sheachadadh. Féadfaidh na seirbhísí sin faisnéis theicniúil áirithe a bhailiú nó a phróiseáil nuair a dhéanann tú rochtain ar Ghús Tsús, amhail seoltaí IP, faisnéis bhrabhsálaí nó ghléis, agus faisnéis a bhaineann le hiarratais chuig a gcórais.", "Is é an soláthraí tríú páirtí iomchuí a dhéanann aon phróiseáil den sórt sin, agus tá sí lasmuigh de rialú díreach Ghús Tsús. Tá láimhseáil faisnéise an tsoláthraí faoi réir a pholasaithe agus a chleachtas príobháideachais féin."] },
+        { heading: "Naisc Sheachtracha", paragraphs: ["D'fhéadfadh naisc chuig suíomhanna gréasáin nó seirbhísí arna n-oibriú ag tríú páirtithe a bheith i nGús Tsús. Níl Gús Tsús freagrach as cleachtais phríobháideachais, slándáil ná ábhar na seirbhísí tríú páirtí sin."] },
+        { heading: "Príobháideachas Leanaí", paragraphs: ["Ní bhailíonn Gús Tsús faisnéis phearsanta ó leanaí ná ó úsáideoirí eile go feasach."] },
+        { heading: "Athruithe ar an bPolasaí Seo", paragraphs: ["Féadfar an Polasaí Príobháideachais seo a nuashonrú ó am go ham chun athruithe ar Ghús Tsús, ar a óstáil nó ar chleachtais infheidhme a léiriú. Léiríonn an dáta ag barr an leathanaigh seo cathain a nuashonraíodh an polasaí is déanaí."] },
+        { heading: "Teagmháil", paragraphs: ["Má tá ceisteanna agat faoin bPolasaí Príobháideachais seo, is féidir leat teagmháil a dhéanamh le tionscadal Ghús Tsús tríd an bhfaisnéis teagmhála atá ar fáil ar shuíomh gréasáin Ghús Tsús."] }
+      ]
+    },
+    terms: {
+      en: [
+        { heading: "", paragraphs: ["By using Goose Choose, you agree to these Terms of Service. If you do not agree with these terms, please do not use Goose Choose."] },
+        { heading: "About Goose Choose", paragraphs: ["Goose Choose is a free decision-making tool intended to help users organize and evaluate considerations when making decisions.", "Goose Choose is provided as a general-purpose tool for informational and personal use. It does not make decisions for you, and its results should not be treated as professional advice or as a substitute for your own judgment."] },
+        { heading: "No Professional Advice", paragraphs: ["Goose Choose does not provide legal, medical, financial, investment, mental health, safety, or other professional advice.", "You should consult an appropriately qualified professional when making decisions that require professional expertise."] },
+        { heading: "Your Decisions Are Your Responsibility", paragraphs: ["Any scores, recommendations, results, or other outputs produced by Goose Choose depend on the information and preferences supplied by the user.", "You are solely responsible for evaluating those results and for any decisions or actions you take based on them. Goose Choose and its creator are not responsible for losses, damages, injuries, costs, or other consequences resulting from decisions made using the service."] },
+        { heading: "User Content", paragraphs: ["You are responsible for any information or content you enter into or upload to Goose Choose.", "You should not use Goose Choose to enter, upload, or process content that you do not have the right to use or that violates applicable law."] },
+        { heading: "Availability and Changes", paragraphs: ["Goose Choose is provided free of charge and may be changed, updated, suspended, or discontinued at any time without notice.", "There is no guarantee that Goose Choose will always be available, operate without errors, preserve compatibility with previously downloaded files, or continue to provide any particular feature."] },
+        { heading: "No Warranties", paragraphs: ["Goose Choose is provided \"as is\" and \"as available\", without warranties of any kind, express or implied, to the fullest extent permitted by applicable law.", "No guarantee is made regarding the accuracy, reliability, availability, security, or suitability of Goose Choose or its results for any particular purpose."] },
+        { heading: "Limitation of Liability", paragraphs: ["To the fullest extent permitted by applicable law, Goose Choose and its creator will not be liable for any direct, indirect, incidental, consequential, special, exemplary, or other damages arising from or related to your use of, inability to use, or reliance on Goose Choose."] },
+        { heading: "Third-Party Services", paragraphs: ["Goose Choose may rely on or link to third-party services. Goose Choose does not control and is not responsible for the availability, security, content, policies, or practices of third-party services."] },
+        { heading: "Changes to These Terms", paragraphs: ["These Terms of Service may be updated from time to time. The date at the top of this page indicates when the terms were most recently updated. Your continued use of Goose Choose after an update constitutes acceptance of the revised terms."] },
+        { heading: "Governing Law", paragraphs: ["These Terms are governed by the laws applicable in the jurisdiction in which the creator of Goose Choose resides, without regard to conflict-of-law principles, except where applicable law requires otherwise."] },
+        { heading: "Contact", paragraphs: ["If you have questions about these Terms of Service, you may contact the Goose Choose project through the contact information made available on the Goose Choose website."] }
+      ],
+      ko: [
+        { heading: "", paragraphs: ["구스추즈를 사용하면 본 서비스 약관에 동의하는 것으로 간주됩니다. 본 약관에 동의하지 않는 경우 구스추즈를 사용하지 마세요."] },
+        { heading: "구스추즈 소개", paragraphs: ["구스추즈는 사용자가 결정을 내릴 때 고려 사항을 정리하고 평가하도록 돕기 위한 무료 의사결정 도구입니다.", "구스추즈는 정보 제공 및 개인적 사용을 위한 범용 도구로 제공됩니다. 구스추즈가 사용자를 대신해 결정을 내리지는 않으며, 그 결과를 전문적인 조언이나 사용자의 판단을 대체하는 것으로 취급해서는 안 됩니다."] },
+        { heading: "전문적 조언 아님", paragraphs: ["구스추즈는 법률, 의료, 금융, 투자, 정신건강, 안전 또는 기타 전문적인 조언을 제공하지 않습니다.", "전문 지식이 필요한 결정을 내릴 때는 적절한 자격을 갖춘 전문가와 상담해야 합니다."] },
+        { heading: "사용자의 결정은 사용자의 책임", paragraphs: ["구스추즈가 생성하는 점수, 추천, 결과 또는 기타 출력은 사용자가 제공한 정보와 선호도에 따라 달라집니다.", "그 결과를 평가하고 이를 바탕으로 내리는 모든 결정이나 행동에 대한 책임은 전적으로 사용자에게 있습니다. 구스추즈와 그 제작자는 서비스를 사용해 내린 결정으로 인해 발생하는 손실, 손해, 부상, 비용 또는 기타 결과에 대해 책임지지 않습니다."] },
+        { heading: "사용자 콘텐츠", paragraphs: ["구스추즈에 입력하거나 업로드하는 모든 정보 또는 콘텐츠에 대한 책임은 사용자에게 있습니다.", "사용할 권리가 없거나 관련 법률을 위반하는 콘텐츠를 구스추즈에 입력, 업로드 또는 처리해서는 안 됩니다."] },
+        { heading: "가용성 및 변경", paragraphs: ["구스추즈는 무료로 제공되며, 사전 통지 없이 언제든 변경, 업데이트, 일시 중단 또는 종료될 수 있습니다.", "구스추즈가 항상 이용 가능하거나, 오류 없이 작동하거나, 이전에 다운로드한 파일과의 호환성을 유지하거나, 특정 기능을 계속 제공한다는 보장은 없습니다."] },
+        { heading: "보증 없음", paragraphs: ["구스추즈는 관련 법률이 허용하는 최대 범위 내에서 명시적이든 묵시적이든 어떠한 종류의 보증 없이 \"있는 그대로\" 및 \"이용 가능한 상태\"로 제공됩니다.", "구스추즈 또는 그 결과의 정확성, 신뢰성, 가용성, 보안성 또는 특정 목적에 대한 적합성에 관해 어떠한 보장도 하지 않습니다."] },
+        { heading: "책임의 제한", paragraphs: ["관련 법률이 허용하는 최대 범위 내에서, 구스추즈와 그 제작자는 구스추즈의 사용, 사용 불가 또는 의존과 관련하여 발생하는 직접, 간접, 부수적, 결과적, 특별, 징벌적 또는 기타 손해에 대해 책임지지 않습니다."] },
+        { heading: "제3자 서비스", paragraphs: ["구스추즈는 제3자 서비스에 의존하거나 해당 서비스로 연결될 수 있습니다. 구스추즈는 제3자 서비스의 가용성, 보안, 콘텐츠, 정책 또는 관행을 통제하지 않으며 이에 대해 책임지지 않습니다."] },
+        { heading: "약관 변경", paragraphs: ["본 서비스 약관은 수시로 업데이트될 수 있습니다. 이 페이지 상단의 날짜는 약관이 마지막으로 업데이트된 시점을 나타냅니다. 업데이트 후에도 구스추즈를 계속 사용하는 경우 개정된 약관에 동의한 것으로 간주됩니다."] },
+        { heading: "준거법", paragraphs: ["본 약관은 관련 법률이 달리 요구하는 경우를 제외하고, 법률 충돌 원칙과 관계없이 구스추즈 제작자가 거주하는 관할권에 적용되는 법률의 지배를 받습니다."] },
+        { heading: "문의", paragraphs: ["본 서비스 약관에 대해 질문이 있는 경우, 구스추즈 웹사이트에 제공된 연락처 정보를 통해 구스추즈 프로젝트에 문의할 수 있습니다."] }
+      ],
+      ga: [
+        { heading: "", paragraphs: ["Trí Ghús Tsús a úsáid, aontaíonn tú leis na Téarmaí Seirbhíse seo. Mura n-aontaíonn tú leis na téarmaí seo, ná húsáid Gús Tsús."] },
+        { heading: "Maidir le Gús Tsús", paragraphs: ["Is uirlis cinnteoireachta saor in aisce é Gús Tsús atá ceaptha cabhrú le húsáideoirí cúiseanna a eagrú agus a mheas agus cinntí á ndéanamh acu.", "Cuirtear Gús Tsús ar fáil mar uirlis ghinearálta le haghaidh úsáide faisnéisí agus pearsanta. Ní dhéanann sé cinntí ar do shon, agus níor cheart a thorthaí a mheas mar chomhairle ghairmiúil ná mar ionadach ar do bhreithiúnas féin."] },
+        { heading: "Gan Chomhairle Ghairmiúil", paragraphs: ["Ní sholáthraíonn Gús Tsús comhairle dhlíthiúil, leighis, airgeadais, infheistíochta, mheabhairshláinte, sábháilteachta ná comhairle ghairmiúil eile.", "Ba cheart duit dul i gcomhairle le gairmí cuí cáilithe agus cinntí á ndéanamh agat a éilíonn saineolas gairmiúil."] },
+        { heading: "Is Ort Féin atá Freagracht do Chinntí", paragraphs: ["Braitheann aon scóir, moltaí, torthaí nó aschuir eile a tháirgeann Gús Tsús ar an bhfaisnéis agus na roghanna a sholáthraíonn an t-úsáideoir.", "Is ortsa amháin atá an fhreagracht na torthaí sin a mheas agus aon chinntí nó gníomhartha a dhéanann tú bunaithe orthu a ghlacadh. Níl Gús Tsús ná a chruthaitheoir freagrach as caillteanais, damáistí, gortuithe, costais ná iarmhairtí eile a eascraíonn as cinntí a rinneadh trí úsáid na seirbhíse."] },
+        { heading: "Ábhar Úsáideora", paragraphs: ["Tá tú freagrach as aon fhaisnéis nó ábhar a chuireann tú isteach i nGús Tsús nó a uaslódálann tú chuige.", "Níor cheart duit Gús Tsús a úsáid chun ábhar nach bhfuil ceart agat a úsáid, nó a sháraíonn dlí infheidhme, a chur isteach, a uaslódáil nó a phróiseáil."] },
+        { heading: "Infhaighteacht agus Athruithe", paragraphs: ["Cuirtear Gús Tsús ar fáil saor in aisce agus féadfar é a athrú, a nuashonrú, a chur ar fionraí nó a scor am ar bith gan fógra.", "Níl aon ráthaíocht ann go mbeidh Gús Tsús ar fáil i gcónaí, go n-oibreoidh sé gan earráidí, go gcoinneoidh sé comhoiriúnacht le comhaid a íoslódáladh roimhe seo, nó go leanfaidh sé de ghné ar leith a chur ar fáil."] },
+        { heading: "Gan Bharántais", paragraphs: ["Cuirtear Gús Tsús ar fáil \"mar atá\" agus \"mar atá ar fáil\", gan bharántais d'aon chineál, sainráite ná intuigthe, a mhéid is mó a cheadaítear faoin dlí infheidhme.", "Ní thugtar aon ráthaíocht maidir le cruinneas, iontaofacht, infhaighteacht, slándáil ná oiriúnacht Ghús Tsús nó a thorthaí d'aon chuspóir ar leith."] },
+        { heading: "Teorainn le Dliteanas", paragraphs: ["A mhéid is mó a cheadaítear faoin dlí infheidhme, ní bheidh Gús Tsús ná a chruthaitheoir faoi dhliteanas as aon damáistí díreacha, indíreacha, teagmhasacha, iarmhartacha, speisialta, samplacha ná damáistí eile a eascraíonn as d'úsáid, d'éagumas úsáid a bhaint as, nó do spleáchas ar Ghús Tsús."] },
+        { heading: "Seirbhísí Tríú Páirtí", paragraphs: ["Féadfaidh Gús Tsús brath ar sheirbhísí tríú páirtí nó nascadh leo. Ní rialaíonn Gús Tsús infhaighteacht, slándáil, ábhar, polasaithe ná cleachtais seirbhísí tríú páirtí, agus níl sé freagrach astu."] },
+        { heading: "Athruithe ar na Téarmaí Seo", paragraphs: ["Féadfar na Téarmaí Seirbhíse seo a nuashonrú ó am go ham. Léiríonn an dáta ag barr an leathanaigh seo cathain a nuashonraíodh na téarmaí is déanaí. Is ionann leanúint d'úsáid Ghús Tsús tar éis nuashonraithe agus glacadh leis na téarmaí leasaithe."] },
+        { heading: "Dlí Rialaithe", paragraphs: ["Tá na Téarmaí seo faoi rialú na ndlíthe is infheidhme sa dlínse ina bhfuil cruthaitheoir Ghús Tsús ina chónaí, gan aird ar phrionsabail choimhlinte dlíthe, ach amháin sa chás go n-éilíonn dlí infheidhme a mhalairt."] },
+        { heading: "Teagmháil", paragraphs: ["Má tá ceisteanna agat faoi na Téarmaí Seirbhíse seo, is féidir leat teagmháil a dhéanamh le tionscadal Ghús Tsús tríd an bhfaisnéis teagmhála atá ar fáil ar shuíomh gréasáin Ghús Tsús."] }
+      ]
     }
   };
 
@@ -316,6 +506,34 @@
     comingSoonTip: document.getElementById("comingSoonTip"),
     themePicker: document.getElementById("themePicker"),
     themeOptions: document.querySelectorAll("[data-theme-choice]"),
+    homeView: document.getElementById("homeView"),
+    randomView: document.getElementById("randomView"),
+    privacyView: document.getElementById("privacyView"),
+    privacyContent: document.getElementById("privacyContent"),
+    termsView: document.getElementById("termsView"),
+    termsContent: document.getElementById("termsContent"),
+    randomLinkWrap: document.getElementById("randomLinkWrap"),
+    toolTabs: document.querySelectorAll("[data-tool-choice]"),
+    slotReels: document.querySelectorAll("[data-slot-reel]"),
+    slotResult: document.getElementById("slotResult"),
+    spinSlot: document.getElementById("spinSlot"),
+    slotTool: document.getElementById("slotTool"),
+    blackjackTool: document.getElementById("blackjackTool"),
+    blackjackStatus: document.getElementById("blackjackStatus"),
+    blackjackNegativeLabel: document.getElementById("blackjackNegativeLabel"),
+    blackjackPositiveLabel: document.getElementById("blackjackPositiveLabel"),
+    blackjackNegativeScore: document.getElementById("blackjackNegativeScore"),
+    blackjackPositiveScore: document.getElementById("blackjackPositiveScore"),
+    blackjackNegativeCards: document.getElementById("blackjackNegativeCards"),
+    blackjackPositiveCards: document.getElementById("blackjackPositiveCards"),
+    dealBlackjack: document.getElementById("dealBlackjack"),
+    hitBlackjack: document.getElementById("hitBlackjack"),
+    stayBlackjack: document.getElementById("stayBlackjack"),
+    jokerModal: document.getElementById("jokerModal"),
+    jokerModalHelp: document.getElementById("jokerModalHelp"),
+    jokerRankSelect: document.getElementById("jokerRankSelect"),
+    jokerSuitSelect: document.getElementById("jokerSuitSelect"),
+    applyJoker: document.getElementById("applyJoker"),
     lists: {
       nay: document.getElementById("nayList"),
       neutral: document.getElementById("neutralList"),
@@ -331,12 +549,23 @@
   };
 
   const scoreOptions = Array.from({ length: 11 }, (_, index) => index - 5);
+  const suits = [
+    { name: "Spades", symbol: "♠", rank: 0 },
+    { name: "Hearts", symbol: "♥", rank: 1 },
+    { name: "Diamonds", symbol: "♦", rank: 2 },
+    { name: "Clubs", symbol: "♣", rank: 3 }
+  ];
+  const cardRanks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+  let currentRoute = routeFromHash();
+  let activeTool = "slot";
+  let slotTimer = null;
+  let blackjackState = createBlackjackState();
 
   function t(key, replacements = {}) {
     const dictionary = translations[currentLanguage] || translations.en;
     let value = dictionary[key] || translations.en[key] || key;
     for (const [name, replacement] of Object.entries(replacements)) {
-      value = value.replace(`{${name}}`, replacement);
+      value = value.split(`{${name}}`).join(replacement);
     }
     return value;
   }
@@ -400,6 +629,503 @@
     if (score === 5) return `+5 ${strongSideLabel("positive")}`;
     if (score === 0) return `0 ${t("neutral")}`;
     return `${formatScore(score)} ${score < 0 ? sideLabel("negative") : sideLabel("positive")}`;
+  }
+
+  function optionLabels() {
+    return {
+      negative: sideLabel("negative"),
+      positive: sideLabel("positive")
+    };
+  }
+
+  function slotOptionLabel(side) {
+    const label = sideLabel(side);
+    return isCustomMode() ? label : label.toLowerCase();
+  }
+
+  function routeFromHash() {
+    if (window.location.hash === "#random") return "random";
+    if (window.location.hash === "#privacy") return "privacy";
+    if (window.location.hash === "#terms") return "terms";
+    return "home";
+  }
+
+  function renderRoute() {
+    currentRoute = routeFromHash();
+    els.homeView.hidden = currentRoute !== "home";
+    els.randomView.hidden = currentRoute !== "random";
+    els.privacyView.hidden = currentRoute !== "privacy";
+    els.termsView.hidden = currentRoute !== "terms";
+    document.body.classList.toggle("random-route", currentRoute === "random");
+    if (currentRoute === "random") {
+      renderRandomTools();
+    } else if (currentRoute === "privacy" || currentRoute === "terms") {
+      renderLegalPage(currentRoute);
+    }
+  }
+
+  function renderLegalPage(pageName) {
+    const content = LEGAL_PAGES[pageName]?.[currentLanguage] || LEGAL_PAGES[pageName]?.en;
+    const container = pageName === "privacy" ? els.privacyContent : els.termsContent;
+    if (!content || !container) return;
+
+    container.innerHTML = "";
+    content.forEach((section) => {
+      const sectionElement = document.createElement("section");
+      sectionElement.className = "legal-section";
+
+      if (section.heading) {
+        const heading = document.createElement("h2");
+        heading.textContent = section.heading;
+        sectionElement.append(heading);
+      }
+
+      section.paragraphs.forEach((paragraphText) => {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = paragraphText;
+        sectionElement.append(paragraph);
+      });
+
+      container.append(sectionElement);
+    });
+  }
+
+  function renderRandomLink() {
+    els.randomLinkWrap.hidden = state.points.length === 0;
+  }
+
+  function setActiveTool(tool) {
+    activeTool = tool;
+    els.toolTabs.forEach((button) => {
+      const active = button.dataset.toolChoice === tool;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-selected", String(active));
+    });
+    els.slotTool.hidden = tool !== "slot";
+    els.slotTool.classList.toggle("active", tool === "slot");
+    els.blackjackTool.hidden = tool !== "blackjack";
+    els.blackjackTool.classList.toggle("active", tool === "blackjack");
+    renderRandomTools();
+  }
+
+  function renderRandomTools() {
+    const labels = optionLabels();
+    if (!slotTimer) {
+      els.slotReels.forEach((reel, index) => {
+        const side = reel.dataset.resultSide || (index === 1 ? "negative" : "positive");
+        reel.textContent = labels[side];
+      });
+    }
+    if (!els.slotResult.dataset.resultSide) {
+      els.slotResult.textContent = t("slotReady");
+    } else {
+      els.slotResult.textContent = t("slotResult", { winner: slotOptionLabel(els.slotResult.dataset.resultSide) });
+    }
+    els.spinSlot.textContent = els.slotResult.dataset.resultSide ? t("spinAgain") : t("spinSlot");
+    renderBlackjack();
+  }
+
+  function finishSlotSpin(results) {
+    const positiveCount = results.filter((side) => side === "positive").length;
+    const winner = positiveCount >= 2 ? "positive" : "negative";
+    const labels = optionLabels();
+    results.forEach((side, index) => {
+      els.slotReels[index].dataset.resultSide = side;
+      els.slotReels[index].textContent = labels[side];
+      els.slotReels[index].classList.toggle("winning", side === winner);
+    });
+    els.slotResult.dataset.resultSide = winner;
+    els.slotResult.textContent = t("slotResult", { winner: slotOptionLabel(winner) });
+    els.spinSlot.textContent = t("spinAgain");
+    els.spinSlot.disabled = false;
+  }
+
+  function spinSlot() {
+    if (slotTimer) clearInterval(slotTimer);
+    const labels = optionLabels();
+    els.spinSlot.disabled = true;
+    els.spinSlot.textContent = t("spinning");
+    els.slotResult.textContent = t("spinning");
+    delete els.slotResult.dataset.resultSide;
+    els.slotReels.forEach((reel) => {
+      delete reel.dataset.resultSide;
+      reel.classList.remove("winning");
+    });
+
+    slotTimer = setInterval(() => {
+      els.slotReels.forEach((reel) => {
+        reel.textContent = Math.random() < 0.5 ? labels.negative : labels.positive;
+      });
+    }, 90);
+
+    window.setTimeout(() => {
+      clearInterval(slotTimer);
+      slotTimer = null;
+      const results = Array.from({ length: 3 }, () => Math.random() < 0.5 ? "negative" : "positive");
+      finishSlotSpin(results);
+    }, 1100);
+  }
+
+  function createBlackjackState() {
+    return {
+      deck: [],
+      hands: { negative: [], positive: [] },
+      stayed: { negative: false, positive: false },
+      active: null,
+      phase: "ready",
+      pendingJoker: null,
+      pendingJokerAfter: null,
+      pendingJokerPlayer: null,
+      statusKey: "blackjackReady",
+      statusData: {}
+    };
+  }
+
+  function createDeck() {
+    const deck = [];
+    suits.forEach((suit) => {
+      cardRanks.forEach((rank) => {
+        deck.push({ id: crypto.randomUUID(), rank, suit });
+      });
+    });
+    for (let index = 0; index < 2; index += 1) {
+      deck.push({
+        id: crypto.randomUUID(),
+        joker: true,
+        rank: "Joker",
+        suit: null,
+        wildRank: "A",
+        wildSuit: null,
+        locked: false
+      });
+    }
+    for (let index = deck.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(Math.random() * (index + 1));
+      [deck[index], deck[swapIndex]] = [deck[swapIndex], deck[index]];
+    }
+    return deck;
+  }
+
+  function cardDisplayRank(card) {
+    return card.joker && card.locked ? card.wildRank : card.rank;
+  }
+
+  function cardDisplaySuit(card) {
+    if (card.joker) return card.locked ? card.wildSuit : null;
+    return card.suit;
+  }
+
+  function cardValue(rank) {
+    if (rank === "Joker") return 0;
+    if (rank === "A") return 11;
+    if (["J", "Q", "K"].includes(rank)) return 10;
+    return Number(rank);
+  }
+
+  function handScore(hand) {
+    let total = hand.reduce((sum, card) => sum + cardValue(cardDisplayRank(card)), 0);
+    let aces = hand.filter((card) => cardDisplayRank(card) === "A").length;
+    while (total > 21 && aces > 0) {
+      total -= 10;
+      aces -= 1;
+    }
+    return total;
+  }
+
+  function distanceFromTwentyOne(hand) {
+    const score = handScore(hand);
+    return score > 21 ? Number.POSITIVE_INFINITY : 21 - score;
+  }
+
+  function bestSuitRank(hand) {
+    return Math.min(...hand.map((card) => cardDisplaySuit(card).rank));
+  }
+
+  function nextPlayer(player) {
+    return player === "negative" ? "positive" : "negative";
+  }
+
+  function blackjackPlayerLabel(player) {
+    const labels = optionLabels();
+    return labels[player];
+  }
+
+  function blackjackStatusText() {
+    const data = { ...blackjackState.statusData };
+    if (data.playerSide) data.player = blackjackPlayerLabel(data.playerSide);
+    if (data.winnerSide) data.winner = blackjackPlayerLabel(data.winnerSide);
+    return t(blackjackState.statusKey, data);
+  }
+
+  function unresolvedJokers() {
+    return ["negative", "positive"].flatMap((player) => (
+      blackjackState.hands[player]
+        .filter((card) => card.joker && !card.locked)
+        .map((card) => ({ player, card }))
+    ));
+  }
+
+  function populateJokerSelects() {
+    const selectedRank = els.jokerRankSelect.value || "A";
+    const selectedSuit = els.jokerSuitSelect.value || "Spades";
+    els.jokerRankSelect.innerHTML = "";
+    cardRanks.forEach((rank) => {
+      const option = document.createElement("option");
+      option.value = rank;
+      option.textContent = rank;
+      els.jokerRankSelect.append(option);
+    });
+
+    els.jokerSuitSelect.innerHTML = "";
+    suits.forEach((suit) => {
+      const option = document.createElement("option");
+      option.value = suit.name;
+      option.textContent = `${suit.symbol} ${suit.name}`;
+      if (suit.name === "Hearts" || suit.name === "Diamonds") option.className = "red-suit-option";
+      els.jokerSuitSelect.append(option);
+    });
+    els.jokerRankSelect.value = selectedRank;
+    els.jokerSuitSelect.value = selectedSuit;
+    updateJokerSuitSelectColor();
+  }
+
+  function updateJokerSuitSelectColor() {
+    const red = els.jokerSuitSelect.value === "Hearts" || els.jokerSuitSelect.value === "Diamonds";
+    els.jokerSuitSelect.classList.toggle("red-suit-select", red);
+  }
+
+  function renderJokerModalCopy() {
+    if (!blackjackState.pendingJokerPlayer) return;
+    els.jokerModalHelp.textContent = t("chooseJokerHelp", {
+      player: blackjackPlayerLabel(blackjackState.pendingJokerPlayer)
+    });
+  }
+
+  function openJokerModal(player, card) {
+    const anchor = document.querySelector(".blackjack-card .tool-copy");
+    if (anchor) {
+      const rect = anchor.getBoundingClientRect();
+      els.jokerModal.style.setProperty("--joker-modal-left", `${rect.left}px`);
+      els.jokerModal.style.setProperty("--joker-modal-top", `${rect.top}px`);
+    }
+    blackjackState.phase = "choosing-joker";
+    blackjackState.pendingJoker = card;
+    blackjackState.pendingJokerPlayer = player;
+    renderJokerModalCopy();
+    els.jokerRankSelect.value = card.wildRank;
+    els.jokerSuitSelect.value = card.wildSuit?.name || "Spades";
+    updateJokerSuitSelectColor();
+    els.jokerModal.hidden = false;
+    els.jokerRankSelect.focus();
+    renderBlackjack();
+  }
+
+  function promptNextJoker(after, preferredPlayer = null) {
+    const pending = unresolvedJokers();
+    const next = preferredPlayer
+      ? pending.find((item) => item.player === preferredPlayer) || pending[0]
+      : pending[0];
+    if (!next) return false;
+    blackjackState.pendingJokerAfter = after;
+    openJokerModal(next.player, next.card);
+    return true;
+  }
+
+  function resumeAfterJokers() {
+    const after = blackjackState.pendingJokerAfter;
+    const player = blackjackState.pendingJokerPlayer;
+    blackjackState.pendingJoker = null;
+    blackjackState.pendingJokerPlayer = null;
+
+    if (promptNextJoker(after)) return;
+
+    blackjackState.pendingJokerAfter = null;
+    blackjackState.phase = "playing";
+
+    if (after === "deal") {
+      const first = chooseFirstPlayer();
+      blackjackState.active = first.player;
+      blackjackState.statusKey = first.tied ? "blackjackTieFirst" : "blackjackTurn";
+      blackjackState.statusData = { playerSide: first.player };
+    } else if (after === "hit") {
+      if (!evaluateBlackjackRound()) advanceBlackjackTurn();
+    } else if (after === "manual") {
+      evaluateBlackjackRound();
+    }
+
+    renderBlackjack();
+  }
+
+  function applyPendingJoker() {
+    const card = blackjackState.pendingJoker;
+    if (!card) return;
+    card.wildRank = els.jokerRankSelect.value;
+    card.wildSuit = suits.find((suit) => suit.name === els.jokerSuitSelect.value) || suits[0];
+    card.locked = true;
+    els.jokerModal.hidden = true;
+    resumeAfterJokers();
+  }
+
+  function chooseFirstPlayer() {
+    const negativeDistance = distanceFromTwentyOne(blackjackState.hands.negative);
+    const positiveDistance = distanceFromTwentyOne(blackjackState.hands.positive);
+    if (negativeDistance < positiveDistance) return { player: "negative", tied: false };
+    if (positiveDistance < negativeDistance) return { player: "positive", tied: false };
+    return {
+      player: bestSuitRank(blackjackState.hands.negative) <= bestSuitRank(blackjackState.hands.positive)
+        ? "negative"
+        : "positive",
+      tied: true
+    };
+  }
+
+  function dealBlackjackRound() {
+    blackjackState = createBlackjackState();
+    blackjackState.deck = createDeck();
+    for (let index = 0; index < 2; index += 1) {
+      blackjackState.hands.negative.push(blackjackState.deck.pop());
+      blackjackState.hands.positive.push(blackjackState.deck.pop());
+    }
+    if (promptNextJoker("deal")) return;
+    blackjackState.phase = "playing";
+    const first = chooseFirstPlayer();
+    blackjackState.active = first.player;
+    blackjackState.statusKey = first.tied ? "blackjackTieFirst" : "blackjackTurn";
+    blackjackState.statusData = { playerSide: first.player };
+    renderBlackjack();
+  }
+
+  function completeBlackjackRound(messageKey, data = {}) {
+    blackjackState.phase = "complete";
+    blackjackState.active = null;
+    blackjackState.statusKey = messageKey;
+    blackjackState.statusData = data;
+  }
+
+  function evaluateBlackjackRound() {
+    const negativeScore = handScore(blackjackState.hands.negative);
+    const positiveScore = handScore(blackjackState.hands.positive);
+    const negativeBust = negativeScore > 21;
+    const positiveBust = positiveScore > 21;
+
+    if (negativeBust) {
+      completeBlackjackRound("blackjackBust", {
+        playerSide: "negative",
+        winnerSide: "positive"
+      });
+      return true;
+    }
+    if (positiveBust) {
+      completeBlackjackRound("blackjackBust", {
+        playerSide: "positive",
+        winnerSide: "negative"
+      });
+      return true;
+    }
+    if (!blackjackState.stayed.negative || !blackjackState.stayed.positive) return false;
+
+    const negativeDistance = 21 - negativeScore;
+    const positiveDistance = 21 - positiveScore;
+    if (negativeDistance === positiveDistance) {
+      completeBlackjackRound("blackjackFinalTie", { score: String(negativeScore) });
+      return true;
+    }
+    const winner = negativeDistance < positiveDistance ? "negative" : "positive";
+    completeBlackjackRound("blackjackWin", { winnerSide: winner });
+    return true;
+  }
+
+  function advanceBlackjackTurn() {
+    const other = nextPlayer(blackjackState.active);
+    if (!blackjackState.stayed[other]) {
+      blackjackState.active = other;
+      blackjackState.statusKey = "blackjackTurn";
+      blackjackState.statusData = { playerSide: other };
+      return;
+    }
+    evaluateBlackjackRound();
+  }
+
+  function hitBlackjack() {
+    if (blackjackState.phase !== "playing" || !blackjackState.active) return;
+    const card = blackjackState.deck.pop();
+    blackjackState.hands[blackjackState.active].push(card);
+    if (card.joker && !card.locked) {
+      promptNextJoker("hit", blackjackState.active);
+      return;
+    }
+    blackjackState.stayed[blackjackState.active] = handScore(blackjackState.hands[blackjackState.active]) > 21;
+    if (!evaluateBlackjackRound()) advanceBlackjackTurn();
+    renderBlackjack();
+  }
+
+  function stayBlackjack() {
+    if (blackjackState.phase !== "playing" || !blackjackState.active) return;
+    const player = blackjackState.active;
+    blackjackState.stayed[player] = true;
+    blackjackState.statusKey = "blackjackStayed";
+    blackjackState.statusData = {
+      playerSide: player,
+      score: String(handScore(blackjackState.hands[player]))
+    };
+    advanceBlackjackTurn();
+    renderBlackjack();
+  }
+
+  function renderCard(card) {
+    const div = document.createElement("div");
+    div.className = "playing-card";
+    const displaySuit = cardDisplaySuit(card);
+    if (displaySuit && (displaySuit.name === "Hearts" || displaySuit.name === "Diamonds")) div.classList.add("red");
+    if (card.joker) div.classList.add("joker-card");
+
+    const rank = document.createElement("span");
+    rank.textContent = card.joker ? t("joker") : card.rank;
+    div.append(rank);
+
+    if (card.joker && !card.locked) {
+      const jokerSymbol = document.createElement("span");
+      jokerSymbol.className = "joker-symbol";
+      jokerSymbol.textContent = "🃟";
+      div.append(jokerSymbol);
+    } else if (!card.joker) {
+      const suit = document.createElement("span");
+      suit.textContent = card.suit.symbol;
+      div.append(suit);
+    }
+
+    if (card.joker && card.locked) {
+      const lockedValue = document.createElement("span");
+      lockedValue.className = "joker-as";
+      lockedValue.textContent = `${card.wildRank} ${card.wildSuit.symbol}`;
+      div.append(lockedValue);
+    }
+    return div;
+  }
+
+  function renderBlackjackHand(player, container, scoreElement) {
+    container.innerHTML = "";
+    blackjackState.hands[player].forEach((card) => container.append(renderCard(card)));
+    const score = handScore(blackjackState.hands[player]);
+    scoreElement.textContent = blackjackState.hands[player].length ? String(score) : "0";
+  }
+
+  function renderBlackjack() {
+    const labels = optionLabels();
+    els.blackjackNegativeLabel.textContent = labels.negative;
+    els.blackjackPositiveLabel.textContent = labels.positive;
+    els.blackjackStatus.textContent = blackjackStatusText();
+    renderBlackjackHand("negative", els.blackjackNegativeCards, els.blackjackNegativeScore);
+    renderBlackjackHand("positive", els.blackjackPositiveCards, els.blackjackPositiveScore);
+    document.querySelectorAll("[data-blackjack-player]").forEach((hand) => {
+      hand.classList.toggle("active", blackjackState.active === hand.dataset.blackjackPlayer);
+      hand.classList.toggle("stayed", blackjackState.stayed[hand.dataset.blackjackPlayer]);
+    });
+    const playing = blackjackState.phase === "playing";
+    els.hitBlackjack.disabled = !playing;
+    els.stayBlackjack.disabled = !playing;
+    els.dealBlackjack.disabled = blackjackState.phase === "choosing-joker";
+    els.dealBlackjack.textContent = blackjackState.phase === "ready" ? t("dealRound") : t("dealRound");
   }
 
   function categoryDefaultScore(category, currentScore) {
@@ -483,6 +1209,10 @@
       element.setAttribute("title", t("comingSoon"));
     });
     els.comingSoonTip.textContent = t("comingSoon");
+    populateJokerSelects();
+    renderJokerModalCopy();
+    if (currentRoute === "random") renderRandomTools();
+    if (currentRoute === "privacy" || currentRoute === "terms") renderLegalPage(currentRoute);
   }
 
   function renderDecisionMode() {
@@ -736,6 +1466,9 @@
     for (const [category, list] of Object.entries(els.lists)) {
       list.innerHTML = "";
       const points = state.points.filter((point) => classify(point.score) === category);
+      const column = list.closest(".point-column");
+      column?.classList.toggle("has-points", points.length > 0);
+      column?.classList.toggle("is-empty", points.length === 0);
 
       if (!points.length) {
         continue;
@@ -772,6 +1505,8 @@
     renderLists();
     renderResult();
     renderLockState();
+    renderRandomLink();
+    if (currentRoute === "random") renderRandomTools();
   }
 
   function addPoint(score) {
@@ -1082,6 +1817,7 @@
       renderLists();
       renderResult();
       renderLockState();
+      renderRandomLink();
       if (!els.updateLogModal.hidden) renderUpdateLog();
     });
 
@@ -1126,6 +1862,11 @@
       if (hasMeaningfulData() && !confirm(t("confirmClear"))) return;
       state = { decision: "", decisionMode: "default", customLabels: { negative: "", positive: "" }, points: [] };
       els.decisionInput.value = "";
+      if (window.location.hash !== "#top") {
+        window.location.hash = "top";
+      } else {
+        renderRoute();
+      }
       update();
       renderNewPointScoreOptions();
     });
@@ -1158,6 +1899,19 @@
       event.preventDefault();
       exportMarkdown();
     });
+
+    window.addEventListener("hashchange", renderRoute);
+
+    els.toolTabs.forEach((button) => {
+      button.addEventListener("click", () => setActiveTool(button.dataset.toolChoice));
+    });
+
+    els.spinSlot.addEventListener("click", spinSlot);
+    els.dealBlackjack.addEventListener("click", dealBlackjackRound);
+    els.hitBlackjack.addEventListener("click", hitBlackjack);
+    els.stayBlackjack.addEventListener("click", stayBlackjack);
+    els.jokerSuitSelect.addEventListener("change", updateJokerSuitSelectColor);
+    els.applyJoker.addEventListener("click", applyPendingJoker);
 
     els.updateLogButton.addEventListener("click", openUpdateLog);
     els.closeUpdateLog.addEventListener("click", closeUpdateLog);
@@ -1193,6 +1947,7 @@
   setupEvents();
   setupDragAndDrop();
   applyTheme();
+  populateJokerSelects();
   els.decisionInput.value = state.decision;
   els.customNegative.value = state.customLabels.negative;
   els.customPositive.value = state.customLabels.positive;
@@ -1200,6 +1955,8 @@
   renderLists();
   renderResult();
   renderLockState();
+  renderRandomLink();
+  renderRoute();
 
   window.GooseChoose = {
     version: APP_VERSION,

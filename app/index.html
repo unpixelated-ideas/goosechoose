@@ -48,6 +48,7 @@
     </header>
 
     <main id="top" class="app-shell">
+      <section class="home-view" id="homeView">
       <section class="decision-card" aria-label="Decision">
         <div class="decision-copy">
           <p class="eyebrow" data-i18n="decisionPrompt">What should the goose choose?</p>
@@ -175,15 +176,131 @@
           </div>
         </div>
       </section>
+      <p class="random-link-wrap" id="randomLinkWrap" hidden>
+        <a class="random-link" href="#random" data-i18n="stillUndecided">Still undecided?</a>
+      </p>
       </div>
+      </section>
+
+      <section class="random-view" id="randomView" hidden aria-labelledby="random-heading">
+        <div class="random-page-head">
+          <a class="back-link" href="#top" data-i18n="backToDecision">Back to decision</a>
+          <div>
+            <p class="eyebrow" data-i18n="randomEyebrow">Random chooser</p>
+            <h1 id="random-heading" data-i18n="randomHeading">Still undecided?</h1>
+            <p class="random-subtitle" data-i18n="randomSubtitle">Let the goose break the tie with a little chance.</p>
+          </div>
+        </div>
+
+        <div class="tool-tabs" role="tablist" aria-label="Random chooser tools">
+          <button class="tool-tab active" id="slotTab" type="button" role="tab" aria-selected="true" aria-controls="slotTool" data-tool-choice="slot" data-i18n="slots">Slots</button>
+          <button class="tool-tab" id="blackjackTab" type="button" role="tab" aria-selected="false" aria-controls="blackjackTool" data-tool-choice="blackjack" data-i18n="blackjack">Blackjack</button>
+        </div>
+
+        <section class="random-tool active" id="slotTool" role="tabpanel" aria-labelledby="slotTab">
+          <div class="tool-card slot-card">
+            <div class="tool-copy">
+              <p class="eyebrow" data-i18n="slots">Slots</p>
+              <h2 data-i18n="slotHeading">Spin three wheels</h2>
+              <p data-i18n="slotHelp">The majority result is the goose's suggestion.</p>
+            </div>
+            <div class="slot-machine" aria-live="polite">
+              <div class="slot-reels" id="slotReels">
+                <div class="slot-reel" data-slot-reel="0">Yea</div>
+                <div class="slot-reel" data-slot-reel="1">Nay</div>
+                <div class="slot-reel" data-slot-reel="2">Yea</div>
+              </div>
+              <p class="game-result" id="slotResult" data-i18n="slotReady">Ready when you are.</p>
+              <button class="primary-button slot-spin-button" id="spinSlot" type="button" data-i18n="spinSlot">Spin</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="random-tool" id="blackjackTool" role="tabpanel" aria-labelledby="blackjackTab" hidden>
+          <div class="tool-card blackjack-card">
+            <div class="tool-copy">
+              <p class="eyebrow" data-i18n="blackjack">Blackjack</p>
+              <h2 data-i18n="blackjackHeading">Closest to 21 chooses</h2>
+              <p data-i18n="blackjackHelp">Each option plays face-up. Hit or stay, then let the closest hand decide.</p>
+            </div>
+
+            <div class="blackjack-table" aria-live="polite">
+              <div class="blackjack-status" id="blackjackStatus" data-i18n="blackjackReady">Deal a round to begin.</div>
+              <div class="modal-backdrop joker-modal-backdrop" id="jokerModal" hidden>
+                <section class="modal-card joker-modal-card" role="dialog" aria-modal="true" aria-labelledby="jokerModalTitle">
+                  <p class="eyebrow" data-i18n="joker">Joker</p>
+                  <h2 id="jokerModalTitle" data-i18n="chooseJokerTitle">Choose the joker</h2>
+                  <p class="modal-help" id="jokerModalHelp">Pick the rank and suit this joker will become.</p>
+                  <div class="joker-choice-grid">
+                    <label>
+                      <span data-i18n="rank">Rank</span>
+                      <select id="jokerRankSelect" aria-label="Rank"></select>
+                    </label>
+                    <label>
+                      <span data-i18n="suit">Suit</span>
+                      <select id="jokerSuitSelect" aria-label="Suit"></select>
+                    </label>
+                  </div>
+                  <button class="primary-button" id="applyJoker" type="button" data-i18n="applyJoker">Apply joker</button>
+                </section>
+              </div>
+              <div class="blackjack-hands">
+                <article class="blackjack-hand" data-blackjack-player="negative">
+                  <div class="hand-head">
+                    <h3 id="blackjackNegativeLabel">Nay</h3>
+                    <span id="blackjackNegativeScore">0</span>
+                  </div>
+                  <div class="cards" id="blackjackNegativeCards"></div>
+                </article>
+                <article class="blackjack-hand" data-blackjack-player="positive">
+                  <div class="hand-head">
+                    <h3 id="blackjackPositiveLabel">Yea</h3>
+                    <span id="blackjackPositiveScore">0</span>
+                  </div>
+                  <div class="cards" id="blackjackPositiveCards"></div>
+                </article>
+              </div>
+              <div class="blackjack-actions">
+                <button class="primary-button" id="dealBlackjack" type="button" data-i18n="dealRound">Deal round</button>
+                <button class="ghost-button" id="hitBlackjack" type="button" data-i18n="hit" disabled>Hit</button>
+                <button class="ghost-button" id="stayBlackjack" type="button" data-i18n="stay" disabled>Stay</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="legal-view" id="privacyView" hidden aria-labelledby="privacy-heading">
+        <div class="legal-page-head">
+          <a class="back-link" href="#top" data-i18n="backToDecision">Back to decision</a>
+          <div>
+            <p class="eyebrow" data-i18n="privacy">Privacy Policy</p>
+            <h1 id="privacy-heading" data-i18n="privacy">Privacy Policy</h1>
+            <p class="legal-updated" data-i18n="legalLastUpdated">Last updated: August 29, 2026</p>
+          </div>
+        </div>
+        <article class="legal-card" id="privacyContent"></article>
+      </section>
+
+      <section class="legal-view" id="termsView" hidden aria-labelledby="terms-heading">
+        <div class="legal-page-head">
+          <a class="back-link" href="#top" data-i18n="backToDecision">Back to decision</a>
+          <div>
+            <p class="eyebrow" data-i18n="terms">Terms of Service</p>
+            <h1 id="terms-heading" data-i18n="terms">Terms of Service</h1>
+            <p class="legal-updated" data-i18n="legalLastUpdated">Last updated: August 29, 2026</p>
+          </div>
+        </div>
+        <article class="legal-card" id="termsContent"></article>
+      </section>
     </main>
 
     <footer class="site-footer">
       <button class="footer-link" id="loadMarkdown" type="button" data-i18n="loadMarkdown">Load Markdown</button>
       <input class="sr-only" id="markdownFileInput" type="file" accept=".md,text/markdown,text/plain">
       <a href="#" id="exportMarkdown" data-i18n="exportMarkdown">Export Markdown</a>
-      <a href="#" data-coming-soon data-i18n="privacy">Privacy Policy</a>
-      <a href="#" data-coming-soon data-i18n="terms">Terms of Service</a>
+      <a href="#privacy" data-i18n="privacy">Privacy Policy</a>
+      <a href="#terms" data-i18n="terms">Terms of Service</a>
       <button class="footer-link" id="updateLogButton" type="button" data-i18n="updateLog">Update Log</button>
     </footer>
 
