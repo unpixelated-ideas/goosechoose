@@ -1,11 +1,31 @@
 (function () {
   "use strict";
 
-  const APP_VERSION = "v0.9.1";
+  const APP_VERSION = "v0.9.2";
   const STORAGE_KEY = "goose-choose-state-v1";
   const LANGUAGE_KEY = "goose-choose-language";
   const THEME_KEY = "goose-choose-theme";
+  const FEEDBACK_URLS = {
+    en: "https://forms.gle/shXHUqVE7TuhTRiY6",
+    ko: "https://forms.gle/i6EoM8g2rrDAgMpXA",
+    ga: "https://forms.gle/6etGaDZZS8YaDP8h6"
+  };
   const UPDATE_LOG = [
+    {
+      version: "v0.9.2",
+      date: "2026-08-31",
+      items: {
+        en: [
+          "Added a feedback survey to collect user input"
+        ],
+        ko: [
+          "사용자 의견을 수집하기 위한 피드백 설문 추가"
+        ],
+        ga: [
+          "Cuireadh suirbhé aiseolais leis chun ionchur úsáideoirí a bhailiú"
+        ]
+      }
+    },
     {
       version: "v0.9.1",
       date: "2026-08-29",
@@ -108,6 +128,7 @@
       exportMarkdown: "Export Markdown",
       exportEmptyDecision: "Enter a decision before exporting.",
       exportTitle: "{appName} Decision",
+      feedback: "Feedback",
       loadMarkdown: "Load Markdown",
       loadMarkdownInvalid: "This Markdown file does not include Goose Choose state.",
       loadMarkdownReady: "Decision loaded",
@@ -209,6 +230,7 @@
       exportMarkdown: "마크다운 내보내기",
       exportEmptyDecision: "내보내기 전에 결정을 입력하세요.",
       exportTitle: "{appName} 결정",
+      feedback: "피드백",
       loadMarkdown: "마크다운 불러오기",
       loadMarkdownInvalid: "이 마크다운 파일에는 구스추즈 상태가 포함되어 있지 않습니다.",
       loadMarkdownReady: "결정을 불러왔습니다",
@@ -310,6 +332,7 @@
       exportMarkdown: "Easpórtáil Markdown",
       exportEmptyDecision: "Cuir cinneadh isteach roimh easpórtáil.",
       exportTitle: "Cinneadh {appName}",
+      feedback: "Aiseolas",
       loadMarkdown: "Lódáil Markdown",
       loadMarkdownInvalid: "Níl staid Gús Tsús sa chomhad Markdown seo.",
       loadMarkdownReady: "Lódáladh an cinneadh",
@@ -499,6 +522,7 @@
     loadMarkdown: document.getElementById("loadMarkdown"),
     markdownFileInput: document.getElementById("markdownFileInput"),
     exportMarkdown: document.getElementById("exportMarkdown"),
+    feedbackLink: document.getElementById("feedbackLink"),
     updateLogButton: document.getElementById("updateLogButton"),
     updateLogModal: document.getElementById("updateLogModal"),
     updateLogContent: document.getElementById("updateLogContent"),
@@ -1208,6 +1232,7 @@
     document.querySelectorAll("[data-coming-soon]").forEach((element) => {
       element.setAttribute("title", t("comingSoon"));
     });
+    els.feedbackLink.href = FEEDBACK_URLS[currentLanguage] || FEEDBACK_URLS.en;
     els.comingSoonTip.textContent = t("comingSoon");
     populateJokerSelects();
     renderJokerModalCopy();
