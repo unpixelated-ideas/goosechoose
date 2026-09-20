@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const APP_VERSION = "v0.9.2";
+  const APP_VERSION = "v0.9.3";
   const STORAGE_KEY = "goose-choose-state-v1";
   const LANGUAGE_KEY = "goose-choose-language";
   const THEME_KEY = "goose-choose-theme";
@@ -11,6 +11,21 @@
     ga: "https://forms.gle/6etGaDZZS8YaDP8h6"
   };
   const UPDATE_LOG = [
+    {
+      version: "v0.9.3",
+      date: "2026-09-19",
+      items: {
+        en: [
+          "Optimized previews for cleanly sharing links in apps such as iMessage, Discord, and other supported apps"
+        ],
+        ko: [
+          "iMessage, Discord 및 기타 지원 앱에서 링크를 깔끔하게 공유할 수 있도록 미리보기 최적화"
+        ],
+        ga: [
+          "Optamaíodh réamhamhairc chun naisc a roinnt go néata in aipeanna ar nós iMessage, Discord agus aipeanna eile a dtacaítear leo"
+        ]
+      }
+    },
     {
       version: "v0.9.2",
       date: "2026-08-31",
@@ -108,7 +123,7 @@
       addPointButton: "Add point",
       addPointHeading: "Add a point",
       addPointHelp: "Write one consideration, choose its score, and Goose Choose will place it in the right column.",
-      appName: "Goose Choose",
+      appName: window.GooseChooseLocales.en.title,
       balancedHint: "The considerations are balancing each other for now.",
       chooseScore: "Choose score",
       clearAll: "Clear all",
@@ -210,7 +225,7 @@
       addPointButton: "포인트 추가",
       addPointHeading: "포인트 추가",
       addPointHelp: "고려할 내용을 하나 적고 점수를 고르면 구스추즈가 알맞은 칸에 넣어줍니다.",
-      appName: "구스추즈",
+      appName: window.GooseChooseLocales.ko.title,
       balancedHint: "현재 고려 사항들이 서로 균형을 이루고 있어요.",
       chooseScore: "점수 선택",
       clearAll: "모두 지우기",
@@ -312,7 +327,7 @@
       addPointButton: "Cuir pointe leis",
       addPointHeading: "Cuir pointe leis",
       addPointHelp: "Scríobh cúis amháin, roghnaigh a scór, agus cuirfidh Gús Tsús sa cholún ceart í.",
-      appName: "Gús Tsús",
+      appName: window.GooseChooseLocales.ga.title,
       balancedHint: "Tá na cúiseanna ag cothromú a chéile faoi láthair.",
       chooseScore: "Roghnaigh scór",
       clearAll: "Glan gach rud",
@@ -501,7 +516,7 @@
     points: []
   };
 
-  let currentLanguage = localStorage.getItem(LANGUAGE_KEY) || "en";
+  let currentLanguage = window.GooseChooseRoutes.language();
   if (!translations[currentLanguage]) currentLanguage = "en";
   let currentTheme = localStorage.getItem(THEME_KEY) || "system";
   if (!["light", "dark", "system"].includes(currentTheme)) currentTheme = "system";
@@ -1221,6 +1236,7 @@
   }
 
   function applyLanguage() {
+    window.GooseChooseRoutes.sync(currentLanguage);
     document.documentElement.lang = currentLanguage === "ko" ? "ko" : currentLanguage === "ga" ? "ga" : "en";
     document.title = t("appName");
     document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -1926,6 +1942,11 @@
     });
 
     window.addEventListener("hashchange", renderRoute);
+    window.addEventListener("popstate", () => {
+      els.languagePicker.value = window.GooseChooseRoutes.language();
+      els.languagePicker.dispatchEvent(new Event("change"));
+      renderRoute();
+    });
 
     els.toolTabs.forEach((button) => {
       button.addEventListener("click", () => setActiveTool(button.dataset.toolChoice));

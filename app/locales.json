@@ -1,0 +1,17 @@
+{
+  "en": {
+    "title": "Goose Choose",
+    "description": "A simple way to weigh your options and make a decision.",
+    "path": ""
+  },
+  "ko": {
+    "title": "구스추스",
+    "description": "선택지를 비교하고 결정을 내리는 간단한 방법.",
+    "path": "ko/"
+  },
+  "ga": {
+    "title": "Gús Tsús",
+    "description": "Bealach simplí le do roghanna a mheá agus cinneadh a dhéanamh.",
+    "path": "ga/"
+  }
+}
