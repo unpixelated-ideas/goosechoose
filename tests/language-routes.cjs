@@ -15,7 +15,7 @@ const assert = require('node:assert/strict');
       assert(html.includes(`<html lang="${lang}">`));
       assert(html.includes(`<meta property="og:title" content="${locale.title}">`));
       assert(html.includes(`<meta property="og:description" content="${locale.description}">`));
-      assert(html.includes('content="https://unpixelated-ideas.github.io/previewimage.png"'));
+      assert(html.includes('content="https://unpixelated-ideas.github.io/goosechoose/previewimage.png"'));
       assert.equal(await page.locator('#languagePicker').inputValue(), lang);
       assert.equal(await page.title(), locale.title);
       assert(await page.locator('#homeView').isVisible());

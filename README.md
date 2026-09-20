@@ -29,7 +29,7 @@ the sources. GitHub Pages serves these files directly without a build workflow
 or SPA rewrite. Every entry contains static localized social metadata, canonical
 and alternate links. The original preview artwork is `previewimage.png` in the
 repository root (given a PNG extension for the correct HTTP content type).
-The generator and routing helper use `https://unpixelated-ideas.github.io/`
+The generator and routing helper use `https://unpixelated-ideas.github.io/goosechoose/`
 as the public origin; update both if the production domain changes.
 
 With the local server running, Playwright available to Node, and Chrome installed,

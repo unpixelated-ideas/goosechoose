@@ -2,7 +2,7 @@
 (() => {
   const locales = window.GooseChooseLocales;
   const root = new URL('../', document.currentScript.src);
-  const publicRoot = 'https://unpixelated-ideas.github.io/';
+  const publicRoot = 'https://unpixelated-ideas.github.io/goosechoose/';
   let initialized = false;
 
   function language() {

@@ -4,7 +4,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ORIGIN = "https://unpixelated-ideas.github.io/"
+ORIGIN = "https://unpixelated-ideas.github.io/goosechoose/"
 IMAGE = ORIGIN + "previewimage.png"
 locales = json.loads((ROOT / "app/locales.json").read_text())
 shell = (ROOT / "app/shell.html").read_text()
