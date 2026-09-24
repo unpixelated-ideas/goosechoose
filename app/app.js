@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const APP_VERSION = "v0.9.3";
+  const APP_VERSION = "v0.9.4";
   const STORAGE_KEY = "goose-choose-state-v1";
   const LANGUAGE_KEY = "goose-choose-language";
   const THEME_KEY = "goose-choose-theme";
@@ -11,6 +11,21 @@
     ga: "https://forms.gle/6etGaDZZS8YaDP8h6"
   };
   const UPDATE_LOG = [
+    {
+      version: "v0.9.4",
+      date: "2026-09-23",
+      items: {
+        en: [
+          "Fixed issue where custom decisions were marked inconsistently in the dropdown menu when adding a point"
+        ],
+        ko: [
+          "포인트를 추가할 때 드롭다운 메뉴에서 사용자 지정 결정이 일관되지 않게 표시되던 문제 수정"
+        ],
+        ga: [
+          "Ceartaíodh fadhb ina raibh cinntí saincheaptha marcáilte go neamh-chomhsheasmhach sa roghchlár anuas agus pointe á chur leis"
+        ]
+      }
+    },
     {
       version: "v0.9.3",
       date: "2026-09-19",
@@ -129,6 +144,7 @@
       clearAll: "Clear all",
       comingSoon: "Coming soon",
       confirmClear: "Clear this decision and all points?",
+      cancel: "Cancel",
       decisionHelp: "This should be a decision you can answer with a yea or a nay.",
       decisionLabel: "Decision",
       decisionPlaceholder: "Start typing here…",
@@ -231,6 +247,7 @@
       clearAll: "모두 지우기",
       comingSoon: "곧 제공됩니다",
       confirmClear: "이 결정과 모든 포인트를 지울까요?",
+      cancel: "취소",
       decisionHelp: "이 결정은 찬성 또는 반대로 답할 수 있어야 합니다.",
       decisionLabel: "결정",
       decisionPlaceholder: "여기에 입력하세요…",
@@ -333,6 +350,7 @@
       clearAll: "Glan gach rud",
       comingSoon: "Ag teacht go luath",
       confirmClear: "An bhfuil fonn ort an cinneadh seo agus na pointí uile a ghlanadh?",
+      cancel: "Cealaigh",
       decisionHelp: "Ba cheart gur cinneadh é seo ar féidir leat yea nó nay a thabhairt air.",
       decisionLabel: "Cinneadh",
       decisionPlaceholder: "Tosaigh ag clóscríobh anseo…",
@@ -664,10 +682,11 @@
   }
 
   function scoreLabel(score) {
-    if (score === -5) return `-5 ${strongSideLabel("negative")}`;
-    if (score === 5) return `+5 ${strongSideLabel("positive")}`;
     if (score === 0) return `0 ${t("neutral")}`;
-    return `${formatScore(score)} ${score < 0 ? sideLabel("negative") : sideLabel("positive")}`;
+    const displayScore = formatScore(isCustomMode() ? Math.abs(score) : score);
+    const side = score < 0 ? "negative" : "positive";
+    const label = Math.abs(score) === 5 ? strongSideLabel(side) : sideLabel(side);
+    return `${displayScore} ${label}`;
   }
 
   function optionLabels() {
@@ -1391,7 +1410,41 @@
   }
 
   function hasMeaningfulData() {
-    return state.decision.trim() || state.points.length;
+    return state.decision.trim() || state.points.length ||
+      state.customLabels.negative.trim() || state.customLabels.positive.trim() ||
+      els.newPointText.value.trim();
+  }
+
+  function confirmClearDecision() {
+    return new Promise((resolve) => {
+      const dialog = document.createElement("dialog");
+      dialog.className = "modal-card clear-dialog";
+      dialog.setAttribute("aria-labelledby", "clearDecisionTitle");
+      const title = document.createElement("h2");
+      title.id = "clearDecisionTitle";
+      title.textContent = t("confirmClear");
+      const form = document.createElement("form");
+      form.method = "dialog";
+      form.className = "clear-dialog-actions";
+      const cancel = document.createElement("button");
+      cancel.className = "ghost-button";
+      cancel.value = "cancel";
+      cancel.textContent = t("cancel");
+      cancel.autofocus = true;
+      const confirmButton = document.createElement("button");
+      confirmButton.className = "primary-button";
+      confirmButton.value = "clear";
+      confirmButton.textContent = t("clearAll");
+      form.append(cancel, confirmButton);
+      dialog.append(title, form);
+      dialog.addEventListener("close", () => {
+        const confirmed = dialog.returnValue === "clear";
+        dialog.remove();
+        resolve(confirmed);
+      }, { once: true });
+      document.body.append(dialog);
+      dialog.showModal();
+    });
   }
 
   function reorderPoint(id, direction) {
@@ -1899,10 +1952,12 @@
       addPoint(Number(els.newPointScore.value));
     });
 
-    els.clearAll.addEventListener("click", () => {
-      if (hasMeaningfulData() && !confirm(t("confirmClear"))) return;
+    els.clearAll.addEventListener("click", async () => {
+      if (hasMeaningfulData() && !await confirmClearDecision()) return;
       state = { decision: "", decisionMode: "default", customLabels: { negative: "", positive: "" }, points: [] };
       els.decisionInput.value = "";
+      els.newPointText.value = "";
+      els.newPointScore.value = "";
       if (window.location.hash !== "#top") {
         window.location.hash = "top";
       } else {
@@ -1910,6 +1965,7 @@
       }
       update();
       renderNewPointScoreOptions();
+      els.decisionInput.focus();
     });
 
     els.themeOptions.forEach((button) => {
