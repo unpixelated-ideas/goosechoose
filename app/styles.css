@@ -1394,7 +1394,23 @@ button:disabled {
   font-weight: 900;
 }
 
+#updateLogModal .modal-card {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  overflow: hidden;
+}
+
+#updateLogTitle {
+  flex-shrink: 0;
+  padding-right: 2rem;
+}
+
 .update-log-content {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding-right: 2rem;
   color: var(--muted);
   line-height: 1.5;
@@ -1656,3 +1672,51 @@ button:disabled {
   }
 
 }
+
+body.welcome-open { overflow: hidden; }
+.welcome-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  width: min(38rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+  box-shadow: var(--shadow);
+}
+.welcome-dialog::backdrop { background: rgba(9, 18, 28, 0.48); }
+.welcome-toolbar { position: sticky; top: 0; height: 0; z-index: 1; }
+.welcome-toolbar .modal-close { width: 2.75rem; height: 2.75rem; top: .5rem; }
+.welcome-content { padding: 1.25rem 4.25rem 1.5rem 1.75rem; }
+.welcome-heading { display: flex; align-items: center; gap: 1rem; margin-bottom: .75rem; }
+.welcome-goose { width: 5rem; height: 5rem; object-fit: contain; flex-shrink: 0; }
+.welcome-heading h2 { margin: 0; font-size: 1.5rem; line-height: 1.2; }
+.welcome-dialog p { margin: .35rem 0 0; line-height: 1.5; color: var(--muted); }
+.welcome-dialog .welcome-question { font-weight: 700; color: var(--ink); }
+.welcome-steps { list-style: none; padding: 0; margin: 1.25rem 0; display: grid; gap: 1rem; }
+.welcome-steps li { display: flex; align-items: flex-start; gap: .75rem; }
+.welcome-number { display: grid; place-items: center; flex: 0 0 2rem; height: 2rem; border-radius: 50%; background: var(--nay-soft); color: var(--ink); font-weight: 800; }
+.welcome-steps li:nth-child(2) .welcome-number { background: var(--neutral-soft); }
+.welcome-steps li:nth-child(3) .welcome-number { background: var(--yay-soft); }
+.welcome-steps h3 { margin: .15rem 0 0; font-size: 1rem; }
+.welcome-conclusion strong { display: block; color: var(--ink); }
+.welcome-conclusion span { display: block; }
+.welcome-dialog .primary-button { width: 100%; margin-top: 1.25rem; min-height: 2.75rem; white-space: normal; }
+.welcome-preference { display: flex; align-items: center; justify-content: center; gap: .5rem; min-height: 2.75rem; margin-top: .5rem; color: var(--muted); cursor: pointer; }
+.welcome-preference input { width: 1.1rem; height: 1.1rem; accent-color: var(--primary-bg); flex-shrink: 0; }
+@media (max-width: 480px) {
+  .welcome-content { padding: 1.25rem 4.25rem 1rem 1rem; }
+  .welcome-heading { flex-direction: column; align-items: flex-start; gap: .5rem; }
+  .welcome-heading h2 { font-size: 1.35rem; }
+}
+
+.welcome-settings { position: absolute; top: 3.5rem; right: .75rem; display: flex; flex-direction: column; gap: .35rem; }
+.welcome-setting { position: relative; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 1px solid var(--line); border-radius: 8px; background: var(--control-bg); font-size: 1.25rem; }
+.welcome-setting:hover { background: var(--control-hover-bg); }
+.welcome-setting:focus-within { outline: 2px solid var(--focus); outline-offset: 2px; }
+ .welcome-setting-wrap { position: relative; }
+.welcome-options { position: absolute; top: 0; right: calc(100% + .5rem); min-width: 9rem; padding: .35rem; border: 1px solid var(--line); border-radius: 10px; background: var(--card); box-shadow: var(--shadow); }
+.welcome-options button { display: block; width: 100%; min-height: 2.5rem; padding: .5rem .75rem; border: 0; border-radius: 6px; background: transparent; color: var(--ink); text-align: left; font-size: .875rem; line-height: 1.4; font-weight: 500; }
+.welcome-options button:hover, .welcome-options button:focus-visible { background: var(--neutral-soft); }
+.welcome-options button[aria-pressed="true"] { background: var(--neutral-soft); font-weight: 700; }

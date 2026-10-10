@@ -284,6 +284,7 @@
     </main>
 
     <footer class="site-footer">
+      <button class="footer-link" id="howItWorksButton" type="button" data-i18n="howItWorks">How It Works</button>
       <button class="footer-link" id="loadMarkdown" type="button" data-i18n="loadMarkdown">Load Markdown</button>
       <input class="sr-only" id="markdownFileInput" type="file" accept=".md,text/markdown,text/plain">
       <a href="#" id="exportMarkdown" data-i18n="exportMarkdown">Export Markdown</a>
@@ -303,3 +304,39 @@
       </section>
     </div>
 
+    <dialog class="modal-card welcome-dialog" id="welcomeDialog" aria-labelledby="welcomeTitle" aria-describedby="welcomeIntro">
+      <div class="welcome-toolbar"><button class="modal-close" id="closeWelcome" type="button" data-i18n-label="welcomeClose" aria-label="Close welcome">×</button>
+        <div class="welcome-settings">
+          <div class="welcome-setting-wrap"><button class="welcome-setting" id="welcomeTheme" type="button" data-i18n-label="welcomeAppearanceLabel" aria-expanded="false" aria-controls="welcomeThemeOptions"><span aria-hidden="true">🌙</span></button>
+            <div class="welcome-options" id="welcomeThemeOptions" role="group" data-i18n-label="welcomeAppearanceLabel" hidden>
+              <button type="button" data-welcome-theme="light" aria-pressed="false" data-i18n="themeLight">Light</button>
+              <button type="button" data-welcome-theme="dark" aria-pressed="false" data-i18n="themeDark">Dark</button>
+              <button type="button" data-welcome-theme="system" aria-pressed="false" data-i18n="themeSystem">System</button>
+            </div>
+          </div>
+          <div class="welcome-setting-wrap"><button class="welcome-setting" id="welcomeLanguage" type="button" data-i18n-label="welcomeLanguageLabel" aria-expanded="false" aria-controls="welcomeLanguageOptions"><span aria-hidden="true">🌐</span></button>
+            <div class="welcome-options" id="welcomeLanguageOptions" role="group" data-i18n-label="welcomeLanguageLabel" hidden>
+              <button type="button" data-welcome-language="en" aria-pressed="false">English</button>
+              <button type="button" data-welcome-language="ko" aria-pressed="false">한국어</button>
+              <button type="button" data-welcome-language="ga" aria-pressed="false">Gaeilge</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="welcome-content">
+        <div class="welcome-heading">
+          <img class="welcome-goose" src="assets/goose-question.png" alt="">
+          <h2 id="welcomeTitle" tabindex="-1" data-i18n="welcomeTitle">Welcome to Goose Choose!</h2>
+        </div>
+        <p class="welcome-question" data-i18n="welcomeQuestion"></p>
+        <p id="welcomeIntro" data-i18n="welcomeIntro"></p>
+        <ol class="welcome-steps">
+          <li><span class="welcome-number" aria-hidden="true">1</span><div><h3 data-i18n="welcomeStep1"></h3><p data-i18n="welcomeStep1Body"></p></div></li>
+          <li><span class="welcome-number" aria-hidden="true">2</span><div><h3 data-i18n="welcomeStep2"></h3><p data-i18n="welcomeStep2Body"></p></div></li>
+          <li><span class="welcome-number" aria-hidden="true">3</span><div><h3 data-i18n="welcomeStep3"></h3><p data-i18n="welcomeStep3Body"></p></div></li>
+        </ol>
+        <p class="welcome-conclusion"><strong data-i18n="welcomeConclusion"></strong><span data-i18n="welcomeConclusionBody"></span></p>
+        <button class="primary-button" id="welcomeStart" type="button" data-i18n="welcomeStart">Let's Get Choosing!</button>
+        <label class="welcome-preference"><input id="welcomeRemember" type="checkbox"><span data-i18n="welcomeRemember">Don't show this again</span></label>
+      </div>
+    </dialog>

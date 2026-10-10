@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const APP_VERSION = "v0.9.4";
+  const APP_VERSION = "v0.8";
   const STORAGE_KEY = "goose-choose-state-v1";
   const LANGUAGE_KEY = "goose-choose-language";
   const THEME_KEY = "goose-choose-theme";
@@ -12,122 +12,143 @@
   };
   const UPDATE_LOG = [
     {
-      version: "v0.9.4",
+      version: "v0.8",
+      date: "2026-10-10",
+      items: {
+        en: [
+          "Added a welcome popup to introduce users to Goose Choose and explain how the decision-making tool works.",
+          "Fixed an issue that prevented users from scrolling through the update log.",
+          "Renumbered previous updates to accurately reflect the application's release history."
+        ],
+        ko: [
+          "사용자에게 Goose Choose를 소개하고 의사 결정 도구의 작동 방식을 설명하는 환영 팝업을 추가했습니다.",
+          "업데이트 기록을 스크롤할 수 없던 문제를 수정했습니다.",
+          "애플리케이션의 출시 이력을 정확하게 반영하도록 이전 업데이트의 버전 번호를 변경했습니다."
+        ],
+        ga: [
+          "Cuireadh preabfhuinneog fáilte leis chun Goose Choose a chur in aithne d’úsáideoirí agus míniú a thabhairt ar an gcaoi a n-oibríonn an uirlis cinnteoireachta.",
+          "Ceartaíodh fadhb a chuir cosc ar úsáideoirí scrollú tríd an loga nuashonruithe.",
+          "Athuimhríodh nuashonruithe roimhe seo chun stair eisiúintí an fheidhmchláir a léiriú go cruinn."
+        ]
+      }
+    },
+    {
+      version: "v0.7",
       date: "2026-09-23",
       items: {
         en: [
-          "Fixed issue where custom decisions were marked inconsistently in the dropdown menu when adding a point"
+          "Fixed an issue where custom decision options were displayed inconsistently in the dropdown menu when adding points."
         ],
         ko: [
-          "포인트를 추가할 때 드롭다운 메뉴에서 사용자 지정 결정이 일관되지 않게 표시되던 문제 수정"
+          "포인트를 추가할 때 드롭다운 메뉴에서 사용자 지정 결정 선택지가 일관되지 않게 표시되던 문제를 수정했습니다."
         ],
         ga: [
-          "Ceartaíodh fadhb ina raibh cinntí saincheaptha marcáilte go neamh-chomhsheasmhach sa roghchlár anuas agus pointe á chur leis"
+          "Ceartaíodh fadhb ina dtaispeántaí roghanna cinnidh saincheaptha go neamh-chomhsheasmhach sa roghchlár anuas agus pointí á gcur leis."
         ]
       }
     },
     {
-      version: "v0.9.3",
+      version: "v0.6",
       date: "2026-09-19",
       items: {
         en: [
-          "Optimized previews for cleanly sharing links in apps such as iMessage, Discord, and other supported apps"
+          "Optimized link previews for improved sharing across iMessage, Discord, and other compatible platforms."
         ],
         ko: [
-          "iMessage, Discord 및 기타 지원 앱에서 링크를 깔끔하게 공유할 수 있도록 미리보기 최적화"
+          "iMessage, Discord 및 기타 호환 플랫폼에서 더 원활하게 공유할 수 있도록 링크 미리보기를 최적화했습니다."
         ],
         ga: [
-          "Optamaíodh réamhamhairc chun naisc a roinnt go néata in aipeanna ar nós iMessage, Discord agus aipeanna eile a dtacaítear leo"
+          "Optamaíodh réamhamhairc nasc chun comhroinnt a fheabhsú ar iMessage, Discord agus ardáin chomhoiriúnacha eile."
         ]
       }
     },
     {
-      version: "v0.9.2",
+      version: "v0.5",
       date: "2026-08-31",
       items: {
         en: [
-          "Added a feedback survey to collect user input"
+          "Introduced a feedback survey to gather user suggestions and improve the experience."
         ],
         ko: [
-          "사용자 의견을 수집하기 위한 피드백 설문 추가"
+          "사용자 제안을 수집하고 사용 경험을 개선하기 위한 피드백 설문을 도입했습니다."
         ],
         ga: [
-          "Cuireadh suirbhé aiseolais leis chun ionchur úsáideoirí a bhailiú"
+          "Tugadh suirbhé aiseolais isteach chun moltaí úsáideoirí a bhailiú agus an t-eispéireas a fheabhsú."
         ]
       }
     },
     {
-      version: "v0.9.1",
+      version: "v0.4",
       date: "2026-08-29",
       items: {
         en: [
-          "Added a random chooser page with Slots and blackjack with wildcard jokers for decisions that still feel undecided",
-          "Fixed UI issue on mobile and tablet where the header was not properly blending in",
-          "Added pages for the Privacy Policy and Terms of Service"
+          "Added a random decision-making page featuring slot machine and blackjack-style games with wildcard jokers for decisions that remain unresolved.",
+          "Fixed a visual issue affecting header appearance on mobile and tablet devices.",
+          "Added dedicated Privacy Policy and Terms of Service pages."
         ],
         ko: [
-          "아직 결정하기 어려운 상황을 위해 슬롯과 와일드카드 조커가 있는 블랙잭 랜덤 선택 페이지 추가",
-          "모바일 및 태블릿에서 헤더가 자연스럽게 어우러지지 않던 UI 문제 수정",
-          "개인정보 처리방침 및 서비스 약관 페이지 추가"
+          "아직 해결되지 않은 결정을 위해 슬롯머신과 와일드카드 조커가 포함된 블랙잭 방식의 게임을 제공하는 무작위 결정 페이지를 추가했습니다.",
+          "모바일 및 태블릿 기기에서 헤더 모양에 영향을 주던 시각적 문제를 수정했습니다.",
+          "개인정보 처리방침 및 서비스 약관 전용 페이지를 추가했습니다."
         ],
         ga: [
-          "Cuireadh leathanach roghnóra randamaigh leis, le Sliotáin agus blackjack le jokers saoróg, do chinntí atá fós idir dhá chomhairle",
-          "Ceartaíodh fadhb UI ar fhón póca agus ar tháibléad nach raibh an ceanntásc ag cumasc isteach i gceart",
-          "Cuireadh leathanaigh don Pholasaí Príobháideachais agus do na Téarmaí Seirbhíse leis"
+          "Cuireadh leathanach cinnteoireachta randamaí leis ina bhfuil cluichí meaisín sliotán agus cluichí ar nós blackjack le jokers saoróg do chinntí atá fós gan réiteach.",
+          "Ceartaíodh fadhb amhairc a chuir isteach ar chuma an cheanntásca ar ghléasanna soghluaiste agus táibléid.",
+          "Cuireadh leathanaigh ar leith don Pholasaí Príobháideachais agus do na Téarmaí Seirbhíse leis."
         ]
       }
     },
     {
-      version: "v0.9",
+      version: "v0.3",
       date: "2026-08-22",
       items: {
         en: [
-          "Appearance toggle: switch between light mode, dark mode, or your system default",
-          "Markdown file uploads: continue working on a decision by uploading a previously downloaded Markdown file",
-          "Custom decision fields: replace the fixed yea/nay labels with your own options for greater flexibility",
-          "Fixed Irish naming inconsistency",
-          "Enabled update log",
-          "Fixed inconsistencies with the tablet and mobile web versions of the tool"
+          "**Appearance settings:** Added the ability to switch between light mode, dark mode, and system default.",
+          "**Markdown uploads:** Enabled users to resume previous decisions by uploading a previously saved Markdown file.",
+          "**Custom decision options:** Allowed users to replace the default yea/nay labels with personalized alternatives.",
+          "Corrected inconsistencies in the Irish-language naming.",
+          "Introduced the update log to document new features, improvements, and fixes.",
+          "Resolved interface inconsistencies across mobile and tablet devices."
         ],
         ko: [
-          "화면 표시 전환: 라이트 모드, 다크 모드 또는 시스템 기본값 중에서 선택",
-          "마크다운 파일 업로드: 이전에 다운로드한 마크다운 파일을 업로드해 결정 작업 계속하기",
-          "사용자 지정 결정 필드: 고정된 yea/nay 라벨을 원하는 선택지로 바꾸기",
-          "아일랜드어 이름 불일치 수정",
-          "업데이트 기록 활성화",
-          "태블릿 및 모바일 웹 버전의 도구 불일치 수정"
+          "**화면 설정:** 라이트 모드, 다크 모드, 시스템 기본값 간에 전환하는 기능을 추가했습니다.",
+          "**Markdown 업로드:** 이전에 저장한 Markdown 파일을 업로드하여 기존 결정 작업을 이어갈 수 있도록 했습니다.",
+          "**사용자 지정 결정 선택지:** 기본 yea/nay 라벨을 원하는 대안으로 바꿀 수 있도록 했습니다.",
+          "아일랜드어 이름의 불일치를 수정했습니다.",
+          "새로운 기능, 개선 사항 및 수정 사항을 기록하는 업데이트 기록을 도입했습니다.",
+          "모바일 및 태블릿 기기의 인터페이스 불일치를 해결했습니다."
         ],
         ga: [
-          "Scorán cuma: aistrigh idir mód geal, mód dorcha, nó réamhshocrú do chórais",
-          "Uaslódálacha comhad Markdown: lean ar aghaidh le cinneadh trí chomhad Markdown a íoslódáladh roimhe seo a uaslódáil",
-          "Réimsí cinnidh saincheaptha: cuir do roghanna féin in áit na lipéad seasta yea/nay le haghaidh níos mó solúbthachta",
-          "Ceartaíodh neamh-chomhsheasmhacht ainmniúcháin na Gaeilge",
-          "Cumasaíodh loga nuashonruithe",
-          "Ceartaíodh neamh-chomhsheasmhachtaí i leaganacha táibléid agus gréasáin soghluaiste na huirlise"
+          "**Socruithe cuma:** Cuireadh leis an gcumas aistriú idir mód geal, mód dorcha agus réamhshocrú an chórais.",
+          "**Uaslódálacha Markdown:** Cuireadh ar chumas úsáideoirí filleadh ar chinntí roimhe seo trí chomhad Markdown a sábháladh cheana a uaslódáil.",
+          "**Roghanna cinnidh saincheaptha:** Tugadh cead d’úsáideoirí roghanna pearsantaithe a chur in áit na lipéad réamhshocraithe yea/nay.",
+          "Ceartaíodh neamh-chomhsheasmhachtaí in ainmniú na Gaeilge.",
+          "Tugadh an loga nuashonruithe isteach chun gnéithe nua, feabhsuithe agus ceartúcháin a thaifeadadh.",
+          "Réitíodh neamh-chomhsheasmhachtaí sa chomhéadan ar ghléasanna soghluaiste agus táibléid."
         ]
       }
     },
     {
-      version: "v0.8",
+      version: "v0.2",
       date: "2026-08-21",
       items: {
         en: [
-          "MVP baseline version; make decisions using yea and nay as the default options",
-          "Core site functionality established",
-          "English as the default language; Korean and Irish translations offered",
-          "Markdown file downloads to retain your decision-making process"
+          "Released the initial minimum viable product (MVP), featuring yea/nay decision-making functionality.",
+          "Established the core functionality and user interface.",
+          "Launched with English as the default language, alongside Korean and Irish translations.",
+          "Introduced Markdown file downloads to save decision details and preserve progress."
         ],
         ko: [
-          "MVP 기준 버전: yea와 nay를 기본 선택지로 사용해 결정하기",
-          "핵심 사이트 기능 구축",
-          "영어를 기본 언어로 제공하고 한국어와 아일랜드어 번역 제공",
-          "결정 과정을 보관할 수 있는 마크다운 파일 다운로드"
+          "yea/nay 의사 결정 기능을 갖춘 초기 최소 기능 제품(MVP)을 출시했습니다.",
+          "핵심 기능과 사용자 인터페이스를 구축했습니다.",
+          "영어를 기본 언어로 출시하고 한국어 및 아일랜드어 번역을 함께 제공했습니다.",
+          "결정 세부 정보와 진행 상황을 저장할 수 있도록 Markdown 파일 다운로드를 도입했습니다."
         ],
         ga: [
-          "Leagan bonnlíne MVP; déan cinntí le yea agus nay mar na roghanna réamhshocraithe",
-          "Bunaíodh príomhfheidhmiúlacht an tsuímh",
-          "Béarla mar an teanga réamhshocraithe; aistriúcháin Chóiréise agus Ghaeilge ar fáil",
-          "Íoslódálacha comhad Markdown chun do phróiseas cinnteoireachta a choinneáil"
+          "Eisíodh an chéad táirge inmharthana íosta (MVP), le feidhmiúlacht cinnteoireachta yea/nay.",
+          "Bunaíodh an phríomhfheidhmiúlacht agus an comhéadan úsáideora.",
+          "Seoladh é le Béarla mar an teanga réamhshocraithe, mar aon le haistriúcháin Chóiréise agus Ghaeilge.",
+          "Tugadh íoslódálacha comhad Markdown isteach chun sonraí cinnidh a shábháil agus dul chun cinn a chaomhnú."
         ]
       }
     }
@@ -135,6 +156,24 @@
 
   const translations = {
     en: {
+      welcomeLanguageLabel: "Language",
+      welcomeAppearanceLabel: "Appearance",
+      welcomeTitle: "Welcome to Goose Choose!",
+      welcomeQuestion: "Having trouble making a decision?",
+      welcomeIntro: "Let the goose help you weigh the pros and cons. Here's how:",
+      welcomeStep1: "Ask your question",
+      welcomeStep1Body: "Enter a decision, like “Should I switch to a new office?” or “Who should I vote for?” Stick with Yea and Nay or customize your options.",
+      welcomeStep2: "Weigh your considerations",
+      welcomeStep2Body: "Add reasons for or against your decision. Score each from -5 (strongly against) to +5 (strongly in favor). Neutral gets a 0.",
+      welcomeStep3: "See where the goose leans",
+      welcomeStep3Body: "Goose Choose organizes your points and adds up their scores. The goose’s recommendation changes as you weigh the evidence.",
+      welcomeConclusion: "The final decision is always yours.",
+      welcomeConclusionBody: "Goose Choose just helps you see things a little more clearly.",
+      welcomeStart: "Let's Get Choosing!",
+      welcomeRemember: "Don't show this again",
+      howItWorks: "How It Works",
+      welcomeClose: "Close welcome",
+
       addPointButton: "Add point",
       addPointHeading: "Add a point",
       addPointHelp: "Write one consideration, choose its score, and Goose Choose will place it in the right column.",
@@ -238,6 +277,24 @@
       lockedNotice: "Enter a decision above to start adding points."
     },
     ko: {
+      welcomeLanguageLabel: "언어",
+      welcomeAppearanceLabel: "화면 모드",
+      welcomeTitle: "구스추즈에 오신 걸 환영해요!",
+      welcomeQuestion: "결정하기 어려우신가요?",
+      welcomeIntro: "거위와 함께 장단점을 차근차근 따져 보세요. 이렇게 시작하면 돼요:",
+      welcomeStep1: "질문을 입력하세요",
+      welcomeStep1Body: "“새 사무실로 옮길까?” 또는 “누구에게 투표할까?”처럼 고민 중인 결정을 적어 보세요. 찬성과 반대를 그대로 쓰거나 선택지를 직접 정할 수 있어요.",
+      welcomeStep2: "고려 사항에 점수를 매겨 보세요",
+      welcomeStep2Body: "찬성하거나 반대하는 이유를 포인트로 추가하세요. -5(강한 반대)부터 +5(강한 찬성)까지 점수를 매기고, 중립적인 내용은 0으로 두세요.",
+      welcomeStep3: "거위가 어느 쪽으로 기우는지 보세요",
+      welcomeStep3Body: "구스추즈가 포인트를 정리하고 총점을 계산해요. 고려 사항의 무게에 따라 거위의 추천도 달라져요.",
+      welcomeConclusion: "최종 결정은 언제나 여러분의 몫이에요.",
+      welcomeConclusionBody: "구스추즈는 생각을 조금 더 명확하게 정리하도록 도와줄 뿐이에요.",
+      welcomeStart: "선택을 시작해 볼까요!",
+      welcomeRemember: "다시 보지 않기",
+      howItWorks: "사용 방법",
+      welcomeClose: "환영 창 닫기",
+
       addPointButton: "포인트 추가",
       addPointHeading: "포인트 추가",
       addPointHelp: "고려할 내용을 하나 적고 점수를 고르면 구스추즈가 알맞은 칸에 넣어줍니다.",
@@ -341,6 +398,24 @@
       lockedNotice: "위에 결정을 입력하면 포인트를 추가할 수 있어요."
     },
     ga: {
+      welcomeLanguageLabel: "Teanga",
+      welcomeAppearanceLabel: "Cuma",
+      welcomeTitle: "Fáilte go Gús Tsús!",
+      welcomeQuestion: "An bhfuil sé deacair cinneadh a dhéanamh?",
+      welcomeIntro: "Lig don ghé cabhrú leat na buntáistí agus na míbhuntáistí a mheá. Seo mar a oibríonn sé:",
+      welcomeStep1: "Cuir do cheist",
+      welcomeStep1Body: "Scríobh an cinneadh atá romhat, mar shampla “Ar cheart dom aistriú go hoifig nua?” nó “Cé dó ar cheart dom vótáil?” Is féidir Yea agus Nay a úsáid nó do roghanna féin a chur isteach.",
+      welcomeStep2: "Meáigh na cúiseanna",
+      welcomeStep2Body: "Cuir pointí leis ar son nó in aghaidh do chinnidh. Tabhair scór ó -5 (go láidir ina aghaidh) go +5 (go láidir ar a shon) do gach pointe. Tabhair 0 do phointí neodracha.",
+      welcomeStep3: "Féach cén treo a bhfuil an ghé ag claonadh",
+      welcomeStep3Body: "Eagraíonn Gús Tsús do chuid pointí agus suimíonn sé na scóir. Athraíonn moladh na gé de réir mar a mheánn tú na cúiseanna.",
+      welcomeConclusion: "Is fútsa atá an cinneadh deiridh i gcónaí.",
+      welcomeConclusionBody: "Ní dhéanann Gús Tsús ach cabhrú leat rudaí a fheiceáil níos soiléire.",
+      welcomeStart: "Tosaímis ag roghnú!",
+      welcomeRemember: "Ná taispeáin é seo arís",
+      howItWorks: "Conas a oibríonn sé",
+      welcomeClose: "Dún an fáiltiú",
+
       addPointButton: "Cuir pointe leis",
       addPointHeading: "Cuir pointe leis",
       addPointHelp: "Scríobh cúis amháin, roghnaigh a scór, agus cuirfidh Gús Tsús sa cholún ceart í.",
@@ -1258,6 +1333,9 @@
     window.GooseChooseRoutes.sync(currentLanguage);
     document.documentElement.lang = currentLanguage === "ko" ? "ko" : currentLanguage === "ga" ? "ga" : "en";
     document.title = t("appName");
+    document.querySelectorAll("[data-welcome-language]").forEach(button => {
+      button.setAttribute("aria-pressed", String(button.dataset.welcomeLanguage === currentLanguage));
+    });
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       element.textContent = t(element.dataset.i18n);
     });
@@ -1266,6 +1344,9 @@
     });
     document.querySelectorAll("[data-coming-soon]").forEach((element) => {
       element.setAttribute("title", t("comingSoon"));
+    });
+    document.querySelectorAll("[data-i18n-label]").forEach((element) => {
+      element.setAttribute("aria-label", t(element.dataset.i18nLabel));
     });
     els.feedbackLink.href = FEEDBACK_URLS[currentLanguage] || FEEDBACK_URLS.en;
     els.comingSoonTip.textContent = t("comingSoon");
@@ -1350,6 +1431,9 @@
       button.setAttribute("aria-pressed", String(active));
     });
     els.themePicker.value = currentTheme;
+    document.querySelectorAll("[data-welcome-theme]").forEach(button => {
+      button.setAttribute("aria-pressed", String(button.dataset.welcomeTheme === currentTheme));
+    });
   }
 
   function renderNewPointScoreOptions() {
@@ -1875,7 +1959,14 @@
       const items = release.items[currentLanguage] || release.items.en;
       items.forEach((item) => {
         const listItem = document.createElement("li");
-        listItem.textContent = item;
+        const emphasizedLabel = item.match(/^\*\*(.+?)\*\*(.*)$/);
+        if (emphasizedLabel) {
+          const label = document.createElement("strong");
+          label.textContent = emphasizedLabel[1];
+          listItem.append(label, emphasizedLabel[2]);
+        } else {
+          listItem.textContent = item;
+        }
         list.append(listItem);
       });
       section.append(list);
@@ -1893,6 +1984,121 @@
   function closeUpdateLog() {
     els.updateLogModal.hidden = true;
     els.updateLogButton.focus();
+  }
+
+  function setupWelcome() {
+    const dialog = document.getElementById("welcomeDialog");
+    const remember = document.getElementById("welcomeRemember");
+    const settings = ["Theme", "Language"].map(kind => ({
+      kind,
+      trigger: document.getElementById(`welcome${kind}`),
+      panel: document.getElementById(`welcome${kind}Options`)
+    }));
+    function closeSettings() {
+      settings.forEach(({ trigger, panel }) => {
+        panel.hidden = true;
+        trigger.setAttribute("aria-expanded", "false");
+      });
+    }
+    settings.forEach(({ kind, trigger, panel }) => {
+      trigger.addEventListener("click", () => {
+        const opening = panel.hidden;
+        closeSettings();
+        if (opening) {
+          panel.hidden = false;
+          trigger.setAttribute("aria-expanded", "true");
+          panel.querySelector('[aria-pressed="true"]').focus();
+        }
+      });
+      panel.addEventListener("click", (event) => {
+        const option = event.target.closest("button");
+        if (!option) return;
+        const picker = kind === "Language" ? els.languagePicker : els.themePicker;
+        picker.value = option.dataset[`welcome${kind}`];
+        picker.dispatchEvent(new Event("change"));
+        closeSettings();
+        trigger.focus();
+      });
+      panel.addEventListener("keydown", (event) => {
+        const buttons = [...panel.querySelectorAll("button")];
+        const index = buttons.indexOf(document.activeElement);
+        const direction = { ArrowDown: 1, ArrowUp: -1 }[event.key];
+        if (direction) {
+          event.preventDefault();
+          buttons[(index + direction + buttons.length) % buttons.length].focus();
+        }
+      });
+    });
+    dialog.addEventListener("click", (event) => {
+      if (!event.target.closest(".welcome-settings")) closeSettings();
+    });
+    dialog.addEventListener("focusin", (event) => {
+      if (!event.target.closest(".welcome-settings")) closeSettings();
+    });
+    dialog.addEventListener("keydown", (event) => {
+      const active = settings.find(({ panel }) => !panel.hidden);
+      if (event.key === "Escape" && active) {
+        event.preventDefault();
+        event.stopPropagation();
+        closeSettings();
+        active.trigger.focus();
+      }
+    });
+    const preferenceKey = "goose-choose-welcome-hidden";
+    const sessionKey = "goose-choose-welcome-seen";
+    let returnFocus;
+    // Storage may be unavailable in private browsing; the introduction still works.
+    function readPreference(session, key) {
+      try { return (session ? sessionStorage : localStorage).getItem(key) === "true"; }
+      catch { return false; }
+    }
+    function openWelcome() {
+      if (dialog.open) return;
+      returnFocus = document.activeElement;
+      remember.checked = readPreference(false, preferenceKey);
+      dialog.showModal();
+      document.body.classList.add("welcome-open");
+      document.getElementById("welcomeTitle").focus();
+      try { sessionStorage.setItem(sessionKey, "true"); } catch { /* Optional persistence. */ }
+    }
+    function dismissWelcome() {
+      closeSettings();
+      try {
+        if (remember.checked) localStorage.setItem(preferenceKey, "true");
+        else localStorage.removeItem(preferenceKey);
+      } catch { /* Dismissal must work without storage. */ }
+      dialog.close();
+      document.body.classList.remove("welcome-open");
+      const target = returnFocus && returnFocus !== document.body && returnFocus.isConnected
+        ? returnFocus : els.decisionInput;
+      target.focus({ preventScroll: true });
+    }
+    document.getElementById("howItWorksButton").addEventListener("click", openWelcome);
+    document.getElementById("closeWelcome").addEventListener("click", dismissWelcome);
+    document.getElementById("welcomeStart").addEventListener("click", dismissWelcome);
+    dialog.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      dismissWelcome();
+    });
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab") return;
+      const first = document.getElementById("closeWelcome");
+      if (event.shiftKey && (document.activeElement === first || document.activeElement.id === "welcomeTitle")) {
+        event.preventDefault();
+        remember.focus();
+      } else if (!event.shiftKey && document.activeElement === remember) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    if (!readPreference(false, preferenceKey) && !readPreference(true, sessionKey)) openWelcome();
+    return function resetWelcome() {
+      try { localStorage.removeItem(preferenceKey); } catch { /* Optional persistence. */ }
+      try { sessionStorage.removeItem(sessionKey); } catch { /* Optional persistence. */ }
+      openWelcome();
+      remember.checked = false;
+      dialog.scrollTop = 0;
+    };
   }
 
   function setupEvents() {
@@ -1966,6 +2172,7 @@
       update();
       renderNewPointScoreOptions();
       els.decisionInput.focus();
+      resetWelcome();
     });
 
     els.themeOptions.forEach((button) => {
@@ -2059,6 +2266,8 @@
   renderLockState();
   renderRandomLink();
   renderRoute();
+
+  const resetWelcome = setupWelcome();
 
   window.GooseChoose = {
     version: APP_VERSION,

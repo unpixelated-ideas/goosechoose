@@ -16,13 +16,10 @@
     if (location.protocol === 'file:') target.pathname += 'index.html';
     target.search = location.search;
     target.hash = location.hash;
-    if (target.href !== location.href) {
-      if (location.protocol === 'file:') {
-        // Keep the legacy local launcher usable; file URLs cannot push history paths.
-        if (initialized) location.href = target.href;
-      } else {
-        history[initialized ? 'pushState' : 'replaceState'](null, '', target);
-      }
+    // Local files cannot push history paths. Update their content in place instead
+    // of navigating, preserving open dialogs and other transient interface state.
+    if (target.href !== location.href && location.protocol !== 'file:') {
+      history[initialized ? 'pushState' : 'replaceState'](null, '', target);
     }
     initialized = true;
     const url = publicRoot + locale.path;

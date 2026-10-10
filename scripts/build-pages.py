@@ -61,6 +61,7 @@ for route, language, assets in [
     <meta name="twitter:title" content="{title}">
     <meta name="twitter:description" content="{description}">
     <meta name="twitter:image" content="{IMAGE}">
+    <link rel="icon" type="image/x-icon" href="{assets}../favicon.ico">
     <link rel="stylesheet" href="{assets}styles.css">
   </head>
   <body>
